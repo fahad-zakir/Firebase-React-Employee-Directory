@@ -6,11 +6,9 @@ body {
 }
 
 nav {
-    display: flex;
-    align-items: center;
     background-color: #4474d3;
-    height: 90px;
-    padding: 30px 25px;
+    height: 100px;
+    padding: 10px 40px 20px 20px
 }
 
 .nav--logo_text, .nav--title {
@@ -18,13 +16,66 @@ nav {
 }
 
 .nav--logo_text {
-    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #61DAFB;
-    font-weight: 700;
-    font-size: 25px;
+    font-size: 30px;
+    letter-spacing: -0.05em;
+    padding-left: 20px;
 }
 
 .nav--icon {
-    height: 30px;
+    height: 32px;
     margin-right: 7px;
+}
+
+.search--input {  
+    background-color: transparent;
+    border: 0;
+    margin-left: 56px;
+    border-bottom: solid 1px #cef1d7;
+    width: 400px;
+    padding: 80px 0px 0px 0px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: 600;
+    outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #D3D3D3;
+  opacity: 1; /* Firefox */
+  font-weight: lighter;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #D3D3D3;
+  font-weight: lighter;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #D3D3D3;
+  font-weight: lighter;
+}
+
+.search--buttons {
+  margin-left: 50px;
+}
+
+button {
+    border: 0;
+    padding: 8px 20px;
+    margin: 26px 2px 0px 5px;
+    border-radius: 2px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #BCEEF2;
+    color: #000;
+    font-weight: 100;
+}
+button:active {
+    outline: none;
 }
