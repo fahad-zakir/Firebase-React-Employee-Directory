@@ -79,6 +79,23 @@ html, body, #background {
      height: 32px;
      margin-right: 7px;
 }
+ .employeeForm {
+     margin-top: 10%;
+}
+ .edit--button {
+     margin: 7px 0px 7px 20px;
+}
+ .btn-td {
+     width: 50px;
+     border-radius: 4px;
+}
+ .td-custom {
+     width: 20px;
+}
+ .form-buttons {
+     margin-top: 50px;
+     margin: 10px;
+}
  .search--input {
      background-color: transparent;
      border: 0;
@@ -131,22 +148,5 @@ html, body, #background {
          width: 70%;
          margin: 2px auto;
     }
-}
- .employeeForm {
-     margin-top: 10%;
-}
- .edit--button {
-     margin: 7px 0px 7px 20px;
-}
- .btn-td {
-     width: 50px;
-     border-radius: 4px;
-}
- .td-custom {
-     width: 20px;
-}
- .form-buttons {
-     margin-top: 50px;
-     margin: 10px;
 }
  

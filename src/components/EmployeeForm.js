@@ -1,8 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-function EmployeeForm({ handleChange, employeeInfo, handleSubmit, handleButtonClick }) {
-
+function EmployeeForm({
+  handleChange,
+  employeeInfo,
+  handleSubmit,
+  handleButtonClick,
+}) {
   return (
     <div className="form-row justify-content-center row">
       <div className="col-sm-3">
@@ -35,7 +39,7 @@ function EmployeeForm({ handleChange, employeeInfo, handleSubmit, handleButtonCl
           placeholder="Job Title"
         />
       </div>
-      <div className="col-sm-12 d-flex justify-content-center">
+      <div className="col-sm-12 d-flex justify-content-center form-buttons">
         <input
           type="submit"
           onClick={handleSubmit}

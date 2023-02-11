@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-function SearchBar({ handleButtonClick, searchEmployee }) {
+function SearchBar({ handleButtonClick, searchEmployee, error }) {
   return (
     <form className="search--form" onSubmit={searchEmployee}>
       <input
@@ -16,7 +16,7 @@ function SearchBar({ handleButtonClick, searchEmployee }) {
         <Button
           onClick={handleButtonClick}
           type="button"
-          className="btn btn-danger add--button"
+          className="btn btn-success add--button"
         >
           Add
         </Button>
