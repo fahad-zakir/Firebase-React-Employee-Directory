@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import Button from "react-bootstrap/Button";
 
 function EmployeeTable({ tabledata }) {
   return (
@@ -20,6 +21,12 @@ function EmployeeTable({ tabledata }) {
               <td>{data.fullName}</td>
               <td>{data.emailAddress}</td>
               <td>{data.jobTitle}</td>
+              <Button
+                type="button"
+                className="btn btn-success edit--button"
+              >
+                Edit
+              </Button>
             </tr>
           );
         })}
