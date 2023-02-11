@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 
 function EmployeeForm({ handleChange, employeeInfo, handleSubmit, handleButtonClick }) {
+
   return (
     <div className="form-row justify-content-center row">
       <div className="col-sm-3">
@@ -27,9 +28,9 @@ function EmployeeForm({ handleChange, employeeInfo, handleSubmit, handleButtonCl
       <div className="col-sm-3">
         <input
           type="text"
-          name="jobTitle"
           onChange={handleChange}
-          value={employeeInfo.jobType}
+          value={employeeInfo.jobTitle}
+          name="jobTitle"
           className="form-control"
           placeholder="Job Title"
         />

@@ -32,7 +32,6 @@ function App() {
         x.emailAddress.toLowerCase() == filterBy ||
         x.jobTitle.toLowerCase() == filterBy
       ) {
-        // console.log(x);
         const newTodos = [...tabledata, x];
         setTableData(newTodos);
       }
@@ -57,8 +56,9 @@ function App() {
     if (checkEmptyInput) {
       const newData = (data) => [...data, employeeInfo];
       setTableData(newData);
-      //  const emptyInput = { fullName: "", emailAddress: "", jobTitle: "" };
-      //  setEmployeeInfo(emptyInput);
+       const emptyInput = { fullName: "", emailAddress: "", jobTitle: "" };
+       setEmployeeInfo(emptyInput);
+       console.log(employeeInfo)
     }
   };
 
