@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../images/oj-icon.png'; 
-import SearchBar from './SearchBar';
 
 function Navbar () {
    return (

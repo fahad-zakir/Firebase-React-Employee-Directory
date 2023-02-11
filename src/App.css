@@ -1,8 +1,10 @@
 .main {
     margin: 0;
+    padding-top: 20px;
     font-family: Inter, sans-serif;
     height: 100vh;
     background-color: #282D35;
+    width: 100%;
 }
 
 nav {
@@ -65,5 +67,19 @@ nav {
 }
 .search--button {
   margin-right: 8px;
+}
+
+.tableData {
+  margin-top: 5%;
+  width: 70%;
+  background-color: rgb(225, 217, 225);
+}
+
+.employeeForm {
+  margin-top: 10%;
+}
+
+.cancel-button{
+  margin-left: 3%;
 }
 

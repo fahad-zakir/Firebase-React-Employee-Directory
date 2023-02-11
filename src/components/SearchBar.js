@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from "react-bootstrap/Button";
 
-function SearchBar () {
+function SearchBar ({ handleButtonClick }) {
     return (
       <div>
         <form className="search--form">
@@ -16,7 +16,7 @@ function SearchBar () {
           <Button type="button" className="btn btn-info search--button">
             Search Employee
           </Button>
-          <Button type="button" className="btn btn-danger add--button">
+          <Button onClick={handleButtonClick} type="button" className="btn btn-danger add--button">
             Add
           </Button>
         </div>
