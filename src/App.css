@@ -40,8 +40,8 @@ nav {
     margin-top: 80px;
     margin-left: 56px;
     border-bottom: solid 1px #cef1d7;
-    width: 400px;
-
+    width: 410px;
+    color: #D3D3D3;
     letter-spacing: 2px;
     font-size: 20px;
     font-weight: 600;
@@ -74,7 +74,7 @@ nav {
 
 .tableData {
   margin-top: 5%;
-  width: 70%;
+  width: 80%;
   background-color: rgb(225, 217, 225);
 }
 
@@ -86,17 +86,12 @@ nav {
   margin: 7px 0px 7px 20px;
 }
 
-label {
-    display: block;
-    margin-top: 1em;
+.btn-td {
+  width: 50px;
+  border-radius: 4px;
 }
 
-input:autofill {
-  height: 20px;
-    border: 3px solid darkorange;
-}
-
-input:-webkit-autofill {
-    border: 3px solid darkorange;
+.td-custom {
+  width: 20px;
 }
 

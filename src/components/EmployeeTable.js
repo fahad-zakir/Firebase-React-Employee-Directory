@@ -1,10 +1,10 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
-import Button from "react-bootstrap/Button";
+
 
 function EmployeeTable({ tabledata }) {
   return (
-    <Table striped bordered hover className="tableData">
+    <Table striped bordered hover className="tableData" style={{width:"80%"}}>
       <thead>
         <tr>
           <th>#</th>
@@ -21,12 +21,11 @@ function EmployeeTable({ tabledata }) {
               <td>{data.fullName}</td>
               <td>{data.emailAddress}</td>
               <td>{data.jobTitle}</td>
-              <Button
-                type="button"
-                className="btn btn-success edit--button"
-              >
-                Edit
-              </Button>
+              <td className="td-custom">
+                <button type="button" className="btn-success btn-td">
+                  edit
+                </button>
+              </td>
             </tr>
           );
         })}

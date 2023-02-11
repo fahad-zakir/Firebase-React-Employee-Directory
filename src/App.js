@@ -25,12 +25,12 @@ function App() {
   };
     const searchEmployee = (e) => {
       e.preventDefault();
-      const filterBy = e.target.elements.search.value;
+      const filterBy = e.target.elements.search.value.toLowerCase()
       data.filter((x) => {
         if (
-          x.fullName == filterBy ||
-          x.emailAddress == filterBy ||
-          x.jobTitle == filterBy
+          x.fullName.toLowerCase() == filterBy ||
+          x.emailAddress.toLowerCase() == filterBy ||
+          x.jobTitle.toLowerCase() == filterBy
         ) {
           // console.log(x);
               const newTodos = [...tabledata, x ];
@@ -49,7 +49,6 @@ function App() {
  };
 
  const handleSubmit = (e) => {
-  console.log('clicked')
    e.preventDefault();
    //if any array is not any empty '', then checkEmptyInput is true;
    const checkEmptyInput = !Object.values(employeeInfo).every(
@@ -84,9 +83,12 @@ function App() {
             />
           </div>
         )}
+        {tabledata.length > 0 ?
         <div className="col-sm-12 d-flex justify-content-center table">
           <EmployeeTable tabledata={tabledata} />
-        </div>
+        </div> :
+        <p></p>
+          }
       </div>
     </div>
   );

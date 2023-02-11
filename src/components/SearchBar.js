@@ -9,7 +9,7 @@ function SearchBar({ handleButtonClick, searchEmployee }) {
         type="text"
         name="search"
         placeholder="search by name, email, or job title..."
-        autocomplete="off"
+        autoComplete="off"
       />
       <div className="search--buttons">
         <button className="btn btn-info search--button">Search Employee</button>
