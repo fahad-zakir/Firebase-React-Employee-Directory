@@ -4,7 +4,13 @@ import Table from 'react-bootstrap/Table';
 
 function EmployeeTable({ tabledata }) {
   return (
-    <Table striped bordered hover className="tableData" style={{width:"80%"}}>
+    <Table
+      striped
+      bordered
+      hover
+      className="tableData table-responsive-sm"
+      style={{ width: "80%" }}
+    >
       <thead>
         <tr>
           <th>#</th>
@@ -13,7 +19,7 @@ function EmployeeTable({ tabledata }) {
           <th>Job Title</th>
         </tr>
       </thead>
-            <tbody>
+      <tbody>
         {tabledata.map((data, index) => {
           return (
             <tr key={index}>
@@ -29,7 +35,6 @@ function EmployeeTable({ tabledata }) {
             </tr>
           );
         })}
-        
       </tbody>
     </Table>
   );

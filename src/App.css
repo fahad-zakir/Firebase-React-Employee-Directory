@@ -1,5 +1,12 @@
+html, 
+body, 
+#background { 
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #282D35;
+}
+
 .main {
-    
     margin: 0;
     padding-top: 20px;
     font-family: Inter, sans-serif;
@@ -8,9 +15,9 @@
     width: 100%;
 }
 
-nav {
+.nav-col {
     background-color: #4474d3;
-    height: 100px;
+    height: 110px;
     padding: 10px 40px 20px 20px
 }
 
@@ -20,6 +27,7 @@ nav {
 
 .nav--logo_text {
     display: flex;
+    padding-top: 10px;
     align-items: center;
     justify-content: center;
     background-color: #4474d3;
@@ -27,6 +35,51 @@ nav {
     font-size: 30px;
     letter-spacing: -0.05em;
     padding-left: 20px;
+}
+@media only screen and (max-width : 500px) {
+  .nav--logo_text {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width : 500px) {
+     ::-webkit-input-placeholder {
+        /* WebKit browsers */
+         color: transparent;
+    }
+     :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+         color: transparent;
+    }
+     ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+         color: transparent;
+    }
+     :-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+         color: transparent;
+    }
+     input::placeholder {
+         color: transparent;
+    }
+     textarea::-webkit-input-placeholder {
+        /* WebKit browsers */
+         color: transparent;
+    }
+     textarea:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+         color: transparent;
+    }
+     textarea::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+         color: transparent;
+    }
+     textarea:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+         color: transparent;
+    }
+     textarea::placeholder {
+         color: transparent;
+    }
 }
 
 .nav--icon {
@@ -46,6 +99,11 @@ nav {
     font-size: 20px;
     font-weight: 600;
     outline: none;
+}
+@media only screen and (max-width : 500px) {
+  .search--input {
+    width: 200px;
+  }
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -77,6 +135,12 @@ nav {
   width: 80%;
   background-color: rgb(225, 217, 225);
 }
+@media only screen and (max-width : 550px) {
+ input.form-control {
+    width: 70%;
+    margin: 2px auto;
+  }
+}
 
 .employeeForm {
   margin-top: 10%;
@@ -93,5 +157,10 @@ nav {
 
 .td-custom {
   width: 20px;
+}
+
+.form-buttons {
+  margin-top: 50px;
+  margin: 10px;
 }
 

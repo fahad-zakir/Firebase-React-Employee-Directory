@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 
 function EmployeeForm({ handleChange, employeeInfo, handleSubmit, handleButtonClick }) {
   return (
-    <div className="form-row row">
+    <div className="form-row justify-content-center row">
       <div className="col-sm-3">
         <input
           type="text"
@@ -34,20 +34,20 @@ function EmployeeForm({ handleChange, employeeInfo, handleSubmit, handleButtonCl
           placeholder="Job Title"
         />
       </div>
-      <div className="col">
+      <div className="col-sm-12 d-flex justify-content-center">
         <input
           type="submit"
           onClick={handleSubmit}
-          className="btn btn-primary"
+          className="btn btn-primary form-buttons"
         />
+        <Button
+          type="button"
+          className="btn-danger add--button form-buttons"
+          onClick={handleButtonClick}
+        >
+          Cancel
+        </Button>
       </div>
-      <Button
-        onClick={handleButtonClick}
-        type="button"
-        className="col btn btn-danger add--button"
-      >
-        Cancel
-      </Button>
     </div>
   );
 }

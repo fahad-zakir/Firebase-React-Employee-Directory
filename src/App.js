@@ -63,7 +63,7 @@ function App() {
  };
 
   return (
-    <div className="container main">
+    <div className="main">
       <div className="row">
         <div className="col-sm-12">
           <Navbar />
@@ -71,10 +71,13 @@ function App() {
 
         {showComponent1 ? (
           <div className="col-sm-12">
-            <SearchBar handleButtonClick={handleButtonClick} searchEmployee={searchEmployee} />
+            <SearchBar
+              handleButtonClick={handleButtonClick}
+              searchEmployee={searchEmployee}
+            />
           </div>
         ) : (
-          <div className="col-sm-12 d-flex justify-content-center employeeForm">
+          <div className="col-sm-12 employeeForm">
             <EmployeeForm
               handleChange={handleChange}
               employeeInfo={employeeInfo}
@@ -83,12 +86,13 @@ function App() {
             />
           </div>
         )}
-        {tabledata.length > 0 ?
-        <div className="col-sm-12 d-flex justify-content-center table">
-          <EmployeeTable tabledata={tabledata} />
-        </div> :
-        <p></p>
-          }
+        {tabledata.length > 0 ? (
+          <div className="col-sm-12 d-flex justify-content-center">
+            <EmployeeTable tabledata={tabledata} />
+          </div>
+        ) : (
+          <p></p>
+        )}
       </div>
     </div>
   );
