@@ -32,8 +32,9 @@ function App() {
         x.emailAddress.toLowerCase() == filterBy ||
         x.jobTitle.toLowerCase() == filterBy
       ) {
-        const newTodos = [...tabledata, x];
-        setTableData(newTodos);
+        const newEmployee = [...tabledata, x];
+        setTableData(newEmployee);
+        e.target.elements.search.value = "";
       }
     });
   };
@@ -58,7 +59,6 @@ function App() {
       setTableData(newData);
        const emptyInput = { fullName: "", emailAddress: "", jobTitle: "" };
        setEmployeeInfo(emptyInput);
-       console.log(employeeInfo)
     }
   };
 
