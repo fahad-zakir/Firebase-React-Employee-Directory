@@ -1,47 +1,41 @@
-html, 
-body, 
-#background { 
-  width: 100vw;
-  min-height: 100vh;
-  background-color: #282D35;
+html, body, #background {
+     width: 100vw;
+     min-height: 100vh;
+     background-color: #282D35;
 }
-
-.main {
-    margin: 0;
-    padding-top: 20px;
-    font-family: Inter, sans-serif;
-    height: 100vh;
-    background-color: #282D35;
-    width: 100%;
+ .main {
+     margin: 0;
+     padding-top: 20px;
+     font-family: Inter, sans-serif;
+     height: 100vh;
+     background-color: #282D35;
+     width: 100%;
 }
-
-.nav-col {
-    background-color: #4474d3;
-    height: 110px;
-    padding: 10px 40px 20px 20px
+ .nav-col {
+     background-color: #4474d3;
+     height: 110px;
+     padding: 10px 40px 20px 20px 
 }
-
-.nav--logo_text, .nav--title {
-    margin: 0;
+ .nav--logo_text, .nav--title {
+     margin: 0;
 }
-
-.nav--logo_text {
-    display: flex;
-    padding-top: 10px;
-    align-items: center;
-    justify-content: center;
-    background-color: #4474d3;
-    color: #61DAFB;
-    font-size: 30px;
-    letter-spacing: -0.05em;
-    padding-left: 20px;
+ .nav--logo_text {
+     display: flex;
+     padding-top: 10px;
+     align-items: center;
+     justify-content: center;
+     background-color: #4474d3;
+     color: #61DAFB;
+     font-size: 30px;
+     letter-spacing: -0.05em;
+     padding-left: 20px;
 }
-@media only screen and (max-width : 500px) {
-  .nav--logo_text {
-    font-size: 20px;
-  }
+ @media only screen and (max-width : 500px) {
+     .nav--logo_text {
+         font-size: 20px;
+    }
 }
-@media only screen and (max-width : 500px) {
+ @media only screen and (max-width : 500px) {
      ::-webkit-input-placeholder {
         /* WebKit browsers */
          color: transparent;
@@ -81,86 +75,78 @@ body,
          color: transparent;
     }
 }
-
-.nav--icon {
-    height: 32px;
-    margin-right: 7px;
+ .nav--icon {
+     height: 32px;
+     margin-right: 7px;
 }
-
-.search--input {  
-    background-color: transparent;
-    border: 0;
-    margin-top: 80px;
-    margin-left: 56px;
-    border-bottom: solid 1px #cef1d7;
-    width: 410px;
-    color: #D3D3D3;
-    letter-spacing: 2px;
-    font-size: 20px;
-    font-weight: 600;
-    outline: none;
+ .search--input {
+     background-color: transparent;
+     border: 0;
+     margin-top: 80px;
+     margin-left: 56px;
+     border-bottom: solid 1px #cef1d7;
+     width: 410px;
+     color: #D3D3D3;
+     letter-spacing: 2px;
+     font-size: 20px;
+     font-weight: 600;
+     outline: none;
 }
-@media only screen and (max-width : 500px) {
-  .search--input {
-    width: 200px;
-  }
+ @media only screen and (max-width : 500px) {
+     .search--input {
+         width: 200px;
+    }
 }
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #D3D3D3;
-  opacity: 1; /* Firefox */
-  font-weight: lighter;
+ ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+     color: #D3D3D3;
+     opacity: 1;
+    /* Firefox */
+     font-weight: lighter;
 }
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #D3D3D3;
-  font-weight: lighter;
+ :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+     color: #D3D3D3;
+     font-weight: lighter;
 }
-
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: #D3D3D3;
-  font-weight: lighter;
+ ::-ms-input-placeholder {
+    /* Microsoft Edge */
+     color: #D3D3D3;
+     font-weight: lighter;
 }
-
-.search--buttons {
-  margin: 20px 0px 0px 50px;
-  padding: 4px;
+ .search--buttons {
+     margin: 20px 0px 0px 50px;
+     padding: 4px;
 }
-.search--button {
-  margin-right: 8px;
+ .search--button {
+     margin-right: 8px;
 }
-
-.tableData {
-  margin-top: 5%;
-  width: 80%;
-  background-color: rgb(225, 217, 225);
+ .tableData {
+     margin-top: 5%;
+     width: 80%;
+     background-color: rgb(225, 217, 225);
 }
-@media only screen and (max-width : 550px) {
- input.form-control {
-    width: 70%;
-    margin: 2px auto;
-  }
+ @media only screen and (max-width : 550px) {
+     input.form-control {
+         width: 70%;
+         margin: 2px auto;
+    }
 }
-
-.employeeForm {
-  margin-top: 10%;
+ .employeeForm {
+     margin-top: 10%;
 }
-
-.edit--button {
-  margin: 7px 0px 7px 20px;
+ .edit--button {
+     margin: 7px 0px 7px 20px;
 }
-
-.btn-td {
-  width: 50px;
-  border-radius: 4px;
+ .btn-td {
+     width: 50px;
+     border-radius: 4px;
 }
-
-.td-custom {
-  width: 20px;
+ .td-custom {
+     width: 20px;
 }
-
-.form-buttons {
-  margin-top: 50px;
-  margin: 10px;
+ .form-buttons {
+     margin-top: 50px;
+     margin: 10px;
 }
-
+ 

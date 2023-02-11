@@ -1,6 +1,5 @@
-import React from 'react';
-import Table from 'react-bootstrap/Table';
-
+import React from "react";
+import Table from "react-bootstrap/Table";
 
 function EmployeeTable({ tabledata }) {
   return (
