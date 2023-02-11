@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
+import data from "./data.json";
 import Navbar from './components/Navbar';
 import SearchBar from './components/SearchBar';
 import EmployeeForm from './components/EmployeeForm';
@@ -15,9 +15,29 @@ function App() {
      emailAddress: "",
      jobTitle: "",
    });
+  const [editEmployee, setEditEmployee] = useState({
+    fullName: "",
+    emailAddress: "",
+    jobTitle: "",
+  });
   const handleButtonClick = () => {
     setShowComponent1(!showComponent1);
   };
+    const searchEmployee = (e) => {
+      e.preventDefault();
+      const filterBy = e.target.elements.search.value;
+      data.filter((x) => {
+        if (
+          x.fullName == filterBy ||
+          x.emailAddress == filterBy ||
+          x.jobTitle == filterBy
+        ) {
+          // console.log(x);
+              const newTodos = [...tabledata, x ];
+              setTableData (newTodos);
+        }
+      });
+    };
 //initial static state for adding employee info to the form 
 //handleChange to get target name 
  const handleChange = (e) => {
@@ -28,8 +48,9 @@ function App() {
    setEmployeeInfo(newName);
  };
 
- const handleSubmit = (evnt) => {
-   evnt.preventDefault();
+ const handleSubmit = (e) => {
+  console.log('clicked')
+   e.preventDefault();
    //if any array is not any empty '', then checkEmptyInput is true;
    const checkEmptyInput = !Object.values(employeeInfo).every(
      (res) => res === ""
@@ -37,8 +58,8 @@ function App() {
    if (checkEmptyInput) {
      const newData = (data) => [...data, employeeInfo];
      setTableData(newData);
-     const emptyInput = { fullName: "", emailAddress: "", jobTitle: "" };
-     setEmployeeInfo(emptyInput);
+    //  const emptyInput = { fullName: "", emailAddress: "", jobTitle: "" };
+    //  setEmployeeInfo(emptyInput);
    }
  };
 
@@ -51,7 +72,7 @@ function App() {
 
         {showComponent1 ? (
           <div className="col-sm-12">
-            <SearchBar handleButtonClick={handleButtonClick} />
+            <SearchBar handleButtonClick={handleButtonClick} searchEmployee={searchEmployee} />
           </div>
         ) : (
           <div className="col-sm-12 d-flex justify-content-center employeeForm">

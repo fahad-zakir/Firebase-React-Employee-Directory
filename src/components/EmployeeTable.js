@@ -23,6 +23,7 @@ function EmployeeTable({ tabledata }) {
             </tr>
           );
         })}
+        
       </tbody>
     </Table>
   );
