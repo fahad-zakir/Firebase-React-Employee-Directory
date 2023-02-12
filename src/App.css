@@ -102,7 +102,6 @@ html, body, #background {
      border: 0;
      border-radius: 4px;
      margin-top: 80px;
-     margin-left: 56px;
      border-bottom: solid 1px #cef1d7;
      width: 390px;
      color: #000000;
@@ -134,7 +133,7 @@ html, body, #background {
      font-weight: lighter;
 }
  .search--buttons {
-     margin: 20px 0px 16px 50px;
+     margin: 20px 0px 16px 0px;
      padding: 4px;
 }
  .search--button {
