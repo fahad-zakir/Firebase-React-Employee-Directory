@@ -25,7 +25,7 @@ function App() {
   const searchEmployee = (e) => {
     e.preventDefault();
     const filterBy = e.target.elements.search.value.toLowerCase();
-    //filtering data json for what wast typed in the input
+    //filtering data json for what was typed in the input
     data.filter((x) => {
       if (
         x.fullName.toLowerCase() === filterBy ||
@@ -38,8 +38,7 @@ function App() {
       }
     });
   };
-  //initial static state for adding employee info to the form
-  //handleChange to get target name and update state in adding inputs
+  //handleChange to get target value and update state in adding inputs for employee form
   const handleChange = (e) => {
     const newInfo = (value) => ({
       ...value,
@@ -67,7 +66,7 @@ function App() {
     e.preventDefault();
     setEditId(-1);
   };
-  //being passed on edit button to set current row id that you want to edit
+  //being passed when edit button clicked to set current row id that you want to edit
   const handleEdit = (id) => {
     setEditId(id);
   };
@@ -78,7 +77,6 @@ function App() {
         <div className="col-sm-12">
           <Navbar />
         </div>
-
         {toggleComponent ? (
           <div className="col-sm-12">
             <SearchBar
