@@ -6,7 +6,7 @@ https://oj-employee-directory.vercel.app/
 Search a list of employee directory by name, email, or job title and
 add or update the employees.
 
-## data-info
+## data.json
 Uses json file for populating and filtering table based on search by either name, email, or job-type.
 
 ## How I built this
