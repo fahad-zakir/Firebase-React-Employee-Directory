@@ -9,7 +9,7 @@ import EmployeeTable from "./components/EmployeeTable";
 
 function App() {
   const [toggleComponent, setToggleComponent] = useState(true);
-  const [tabledata, setTableData] = useState([]);
+  const [tableData, setTableData] = useState([]);
   const [id, setIdCount] = useState(11);
   //id set count to 11 for new ids since 1 - 10 are used in json data
   const [employeeInfo, setEmployeeInfo] = useState({
@@ -25,14 +25,14 @@ function App() {
   const searchEmployee = (e) => {
     e.preventDefault();
     const filterBy = e.target.elements.search.value.toLowerCase();
-    //filtering data json for what wast typed in the input 
+    //filtering data json for what wast typed in the input
     data.filter((x) => {
       if (
         x.fullName.toLowerCase() == filterBy ||
         x.emailAddress.toLowerCase() == filterBy ||
         x.jobTitle.toLowerCase() == filterBy
       ) {
-        const newEmployee = [...tabledata, x];
+        const newEmployee = [...tableData, x];
         setTableData(newEmployee);
         e.target.elements.search.value = "";
       }
@@ -70,7 +70,7 @@ function App() {
   //being passed on edit button to set current row id that you want to edit
   const handleEdit = (id) => {
     setActiveId(id);
-  }
+  };
 
   return (
     <div className="main">
@@ -96,10 +96,10 @@ function App() {
             />
           </div>
         )}
-        {tabledata.length > 0 ? (
+        {tableData.length > 0 ? (
           <div className="col-sm-12 d-flex justify-content-center">
             <EmployeeTable
-              tabledata={tabledata}
+              tableData={tableData}
               setTableData={setTableData}
               activeId={activeId}
               handleEdit={handleEdit}

@@ -1,14 +1,14 @@
 import React from "react";
 
-function EditForm({ data, tabledata, setTableData }) {
+function EditForm({ data, tableData, setTableData }) {
   const handleNameAttribute = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    const updatedData = tabledata.map((d) =>
+    const updatedData = tableData.map((d) =>
       d.id === data.id ? { ...d, [name]: value } : d
     );
     setTableData(updatedData);
-  }
+  };
 
   return (
     <tr>

@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table";
 import EditForm from "./EditForm";
 
 function EmployeeTable({
-  tabledata,
+  tableData,
   setTableData,
   handleEdit,
   activeId,
@@ -31,13 +31,13 @@ function EmployeeTable({
           </tr>
         </thead>
         <tbody>
-          {tabledata.map((data, index) => {
+          {tableData.map((data, index) => {
             return activeId === data.id ? (
               <EditForm
                 key={index}
                 employeeInfo={employeeInfo}
                 data={data}
-                tabledata={tabledata}
+                tableData={tableData}
                 setTableData={setTableData}
               />
             ) : (
