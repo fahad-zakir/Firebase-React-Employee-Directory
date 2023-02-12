@@ -98,15 +98,16 @@ html, body, #background {
      margin: 10px;
 }
  .search--input {
-     background-color: #282D35;
+     background-color: #e2e3e5;
      border: 0;
+     border-radius: 4px;
      margin-top: 80px;
      margin-left: 56px;
      border-bottom: solid 1px #cef1d7;
-     width: 410px;
+     width: 390px;
      color: #D3D3D3;
      letter-spacing: 2px;
-     font-size: 20px;
+     font-size: 18px;
      font-weight: 600;
      outline: none;
 }
@@ -117,19 +118,19 @@ html, body, #background {
 }
  ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-     color: #D3D3D3;
+     color: #000000;
      opacity: 1;
     /* Firefox */
      font-weight: lighter;
 }
  :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-     color: #D3D3D3;
+     color: #000000;
      font-weight: lighter;
 }
  ::-ms-input-placeholder {
     /* Microsoft Edge */
-     color: #D3D3D3;
+     color: #000000;
      font-weight: lighter;
 }
  .search--buttons {
