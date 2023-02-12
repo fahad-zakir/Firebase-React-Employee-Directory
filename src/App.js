@@ -17,8 +17,8 @@ function App() {
     emailAddress: "",
     jobTitle: "",
   });
-  const [activeId, setActiveId] = useState(-1);
-  //activeId is used for edit
+  const [editId, setEditId] = useState(-1);
+  //editId is used when clicked on edit button, setting current row id as state and enabling edit component
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
   };
@@ -28,9 +28,9 @@ function App() {
     //filtering data json for what wast typed in the input
     data.filter((x) => {
       if (
-        x.fullName.toLowerCase() == filterBy ||
-        x.emailAddress.toLowerCase() == filterBy ||
-        x.jobTitle.toLowerCase() == filterBy
+        x.fullName.toLowerCase() === filterBy ||
+        x.emailAddress.toLowerCase() === filterBy ||
+        x.jobTitle.toLowerCase() === filterBy
       ) {
         const newEmployee = [...tableData, x];
         setTableData(newEmployee);
@@ -65,11 +65,11 @@ function App() {
   //these handlers are being used to compare with current row id so you can get the row clicked on
   const handleUpdate = (e) => {
     e.preventDefault();
-    setActiveId(-1);
+    setEditId(-1);
   };
   //being passed on edit button to set current row id that you want to edit
   const handleEdit = (id) => {
-    setActiveId(id);
+    setEditId(id);
   };
 
   return (
@@ -101,7 +101,7 @@ function App() {
             <EmployeeTable
               tableData={tableData}
               setTableData={setTableData}
-              activeId={activeId}
+              editId={editId}
               handleEdit={handleEdit}
               employeeInfo={employeeInfo}
               handleUpdate={handleUpdate}

@@ -6,7 +6,7 @@ function EmployeeTable({
   tableData,
   setTableData,
   handleEdit,
-  activeId,
+  editId,
   employeeInfo,
   handleUpdate,
 }) {
@@ -32,7 +32,7 @@ function EmployeeTable({
         </thead>
         <tbody>
           {tableData.map((data, index) => {
-            return activeId === data.id ? (
+            return editId === data.id ? (
               <EditForm
                 key={index}
                 employeeInfo={employeeInfo}
