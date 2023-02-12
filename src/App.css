@@ -88,6 +88,7 @@ html, body, #background {
  .btn-td {
      width: 50px;
      border-radius: 4px;
+     text-align: center;
 }
  .td-custom {
      width: 20px;
@@ -97,7 +98,7 @@ html, body, #background {
      margin: 10px;
 }
  .search--input {
-     background-color: transparent;
+     background-color: #282D35;
      border: 0;
      margin-top: 80px;
      margin-left: 56px;
