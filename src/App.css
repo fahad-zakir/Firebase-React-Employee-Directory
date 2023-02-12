@@ -82,12 +82,14 @@ html, body, #background {
  .employeeForm {
      margin-top: 10%;
 }
- .edit--button {
-     margin: 7px 0px 7px 20px;
-}
  .btn-td-save {
      margin-top: 5px;
      width: 55px;
+     border-radius: 4px;
+}
+ .btn-td {
+     margin-top: 5px;
+     width: 50px;
      border-radius: 4px;
 }
  .td-custom {
