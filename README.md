@@ -7,7 +7,7 @@ Search a list of employee directory by name, email, or job title and
 add or update the employees.
 
 ## data-info
-Uses json file for populating and filtering table
+Uses json file for populating and filtering table based on search by either name, email, or job-type.
 
 ## How I built this
 • designed a layout first with a banner, and an initial search input
