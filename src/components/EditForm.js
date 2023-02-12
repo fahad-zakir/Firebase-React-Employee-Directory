@@ -56,7 +56,7 @@ function EditForm({ data, tabledata, setTableData }) {
         />
       </td>
       <td className="td-custom">
-        <button type="submit" className="btn-success btn-td">
+        <button type="submit" className="btn-success btn-td-save">
           save
         </button>
       </td>

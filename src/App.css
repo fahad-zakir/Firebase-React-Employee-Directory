@@ -85,10 +85,10 @@ html, body, #background {
  .edit--button {
      margin: 7px 0px 7px 20px;
 }
- .btn-td {
-     width: 50px;
+ .btn-td-save {
+     margin-top: 5px;
+     width: 55px;
      border-radius: 4px;
-     text-align: center;
 }
  .td-custom {
      width: 20px;
