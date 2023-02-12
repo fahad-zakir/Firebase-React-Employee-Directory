@@ -3,6 +3,7 @@ html, body, #background {
      min-height: 100vh;
      background-color: #282D35;
 }
+
  .main {
      margin: 0;
      padding-top: 20px;
@@ -27,8 +28,10 @@ html, body, #background {
      background-color: #4474d3;
      color: #61DAFB;
      font-size: 30px;
+     font-weight: 600;
      letter-spacing: -0.05em;
      padding-left: 20px;
+     
 }
  @media only screen and (max-width : 500px) {
      .nav--logo_text {
