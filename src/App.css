@@ -93,10 +93,10 @@ html, body, #background {
  @media only screen and (max-width : 500px) {
      .btn-td-save {
          font-weight: 400;
-         padding-right: 20px;
+         padding-right: 28px;
     }
       .btn-td {
-      padding-right: 5px;
+      padding-right: 10px;
     }
 }
  .btn-td {
