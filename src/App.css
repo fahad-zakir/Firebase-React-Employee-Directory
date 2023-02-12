@@ -83,7 +83,7 @@ html, body, #background {
      margin-right: 7px;
 }
  .employeeForm {
-     margin-top: 10%;
+     margin-top: 8%;
 }
  .btn-td-save {
      width: 55px;
@@ -91,10 +91,12 @@ html, body, #background {
 }
  @media only screen and (max-width : 500px) {
      .btn-td-save {
+         margin-top: 6px;
          font-weight: 400;
          padding-right: 34px;
     }
       .btn-td {
+      margin-top: 6px;
       padding-right: 15px;
     }
 }
@@ -106,14 +108,13 @@ html, body, #background {
      width: 20px;
 }
  .form-buttons {
-     margin-top: 50px;
-     margin: 10px;
+     margin: 18px 10px 10px 10px;
 }
  .search--input {
      background-color: #e2e3e5;
      border: 0;
      border-radius: 4px;
-     margin-top: 100px;
+     margin-top: 110px;
      border-bottom: solid 1px #cef1d7;
      width: 390px;
      color: #000000;
@@ -145,7 +146,7 @@ html, body, #background {
      font-weight: lighter;
 }
  .search--buttons {
-     margin: 20px 0px 16px 0px;
+     margin: 28px 0px 16px 0px;
      padding: 4px;
 }
  .search--button {
@@ -155,6 +156,9 @@ html, body, #background {
      margin-top: 5%;
      width: 80%;
      background-color: rgb(225, 217, 225);
+     border-radius: 6px;
+     overflow: hidden;
+
 }
  @media only screen and (max-width : 550px) {
      input.form-control {

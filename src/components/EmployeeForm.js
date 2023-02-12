@@ -8,7 +8,7 @@ function EmployeeForm({
   handleButtonClick,
 }) {
   return (
-    <div className="form-row justify-content-center row">
+    <div className="form-row justify-content-center">
       <div className="col-sm-3">
         <input
           type="text"
