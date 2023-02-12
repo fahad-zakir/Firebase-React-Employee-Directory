@@ -95,6 +95,9 @@ html, body, #background {
          font-weight: 400;
          padding-right: 20px;
     }
+      .btn-td {
+      padding-right: 5px;
+    }
 }
  .btn-td {
      margin-top: 5px;
