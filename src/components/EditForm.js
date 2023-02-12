@@ -1,34 +1,21 @@
 import React from "react";
 
 function EditForm({ data, tabledata, setTableData }) {
-  const handleName = (e) => {
-    const name = e.target.value;
+  const handleNameAttribute = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
     const updatedData = tabledata.map((d) =>
-      d.id === data.id ? { ...d, fullName: name } : d
+      d.id === data.id ? { ...d, [name]: value } : d
     );
     setTableData(updatedData);
   }
-  const handleEmail = (e) => {
-    const email = e.target.value;
-    const updatedData = tabledata.map((d) =>
-      d.id === data.id ? { ...d, emailAddress: email } : d
-    );
-    setTableData(updatedData);
-  };
-  const handleJobTitle = (e) => {
-    const job = e.target.value;
-    const updatedData = tabledata.map((d) =>
-      d.id === data.id ? { ...d, jobTitle: job } : d
-    );
-    setTableData(updatedData);
-  };
 
   return (
     <tr>
       <td>
         <input
           type="text"
-          onChange={handleName}
+          onChange={handleNameAttribute}
           value={data.fullName}
           name="fullName"
           className="form-control"
@@ -38,7 +25,7 @@ function EditForm({ data, tabledata, setTableData }) {
       <td>
         <input
           type="email"
-          onChange={handleEmail}
+          onChange={handleNameAttribute}
           value={data.emailAddress}
           name="emailAddress"
           className="form-control"
@@ -48,7 +35,7 @@ function EditForm({ data, tabledata, setTableData }) {
       <td>
         <input
           type="text"
-          onChange={handleJobTitle}
+          onChange={handleNameAttribute}
           value={data.jobTitle}
           name="jobTitle"
           className="form-control"
