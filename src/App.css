@@ -90,6 +90,12 @@ html, body, #background {
      width: 55px;
      border-radius: 4px;
 }
+ @media only screen and (max-width : 500px) {
+     .btn-td-save {
+         font-weight: 400;
+         padding-right: 20px;
+    }
+}
  .btn-td {
      margin-top: 5px;
      width: 50px;
