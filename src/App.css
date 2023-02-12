@@ -134,7 +134,7 @@ html, body, #background {
      font-weight: lighter;
 }
  .search--buttons {
-     margin: 20px 0px 0px 50px;
+     margin: 20px 0px 16px 50px;
      padding: 4px;
 }
  .search--button {
