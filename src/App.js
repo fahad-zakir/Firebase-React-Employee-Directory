@@ -11,7 +11,7 @@ function App() {
   const [toggleComponent, setToggleComponent] = useState(true);
   const [tabledata, setTableData] = useState([]);
   const [id, setIdCount] = useState(11);
-  //id set count to 11 for new ids since 1 - 10 are id 1 - 10 are used in json data
+  //id set count to 11 for new ids since 1 - 10 are used in json data
   const [employeeInfo, setEmployeeInfo] = useState({
     fullName: "",
     emailAddress: "",
@@ -39,7 +39,7 @@ function App() {
     });
   };
   //initial static state for adding employee info to the form
-  //handleChange to get target name and update state 
+  //handleChange to get target name and update state in adding inputs
   const handleChange = (e) => {
     const newInfo = (value) => ({
       ...value,
@@ -62,12 +62,13 @@ function App() {
       setEmployeeInfo(emptyInput);
     }
   };
-  //these handlers are being used to compare with current tableid so you can get the row clicked on
+  //these handlers are being used to compare with current row id so you can get the row clicked on
   const handleUpdate = (e) => {
     e.preventDefault();
     setActiveId(-1);
   };
-  function handleEdit(id) {
+  //being passed on edit button to set current row id that you want to edit
+  const handleEdit = (id) => {
     setActiveId(id);
   }
 
