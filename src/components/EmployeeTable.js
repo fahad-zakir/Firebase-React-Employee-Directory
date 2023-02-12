@@ -12,7 +12,6 @@ function EmployeeTable({
 }) {
   return (
     <form
-      style={{ width: "100%" }}
       className="col-sm-12 d-flex justify-content-center"
       onSubmit={handleUpdate}
     >
@@ -21,7 +20,6 @@ function EmployeeTable({
         bordered
         hover
         className="tableData table-responsive-sm"
-        style={{ width: "80%" }}
       >
         <thead>
           <tr>

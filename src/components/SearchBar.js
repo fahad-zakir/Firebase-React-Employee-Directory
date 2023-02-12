@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-function SearchBar({ handleButtonClick, searchEmployee, error }) {
+function SearchBar({ handleButtonClick, searchEmployee }) {
   return (
     <form className="search--form" onSubmit={searchEmployee}>
       <div className="col-sm-12 d-flex justify-content-center">

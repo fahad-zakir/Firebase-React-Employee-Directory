@@ -88,6 +88,7 @@ html, body, #background {
  .btn-td-save {
      width: 55px;
      border-radius: 4px;
+     margin-top: 4px;
 }
  @media only screen and (max-width : 500px) {
      .btn-td-save {
@@ -154,7 +155,7 @@ html, body, #background {
 }
  .tableData {
      margin-top: 5%;
-     width: 80%;
+     width: 80% !important;
      background-color: rgb(225, 217, 225);
      border-radius: 6px;
      overflow: hidden;
@@ -172,6 +173,7 @@ html, body, #background {
     }
     .tableData {
       margin-top: 7%;
+      width: 100% !important;
     }
 }
  

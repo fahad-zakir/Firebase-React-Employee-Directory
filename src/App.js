@@ -53,6 +53,7 @@ function App() {
       (res) => res === ""
     );
     if (checkEmptyInput) {
+    //id was not a property for employee form so we are adding key value pair
       setIdCount(id + 1);
       const newData = (data) => [...data, employeeInfo];
       employeeInfo["id"] = id;
