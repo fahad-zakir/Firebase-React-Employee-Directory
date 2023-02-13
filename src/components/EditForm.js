@@ -9,7 +9,6 @@ function EditForm({ data, tableData, setTableData }) {
     );
     setTableData(updatedData);
   };
-
   return (
     <tr>
       <td>
@@ -44,7 +43,7 @@ function EditForm({ data, tableData, setTableData }) {
       </td>
       <td>
         <input
-          type="number"
+          type="text"
           onChange={handleNameAttribute}
           value={data.phoneNumber}
           name="phoneNumber"

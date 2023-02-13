@@ -35,7 +35,7 @@ function EmployeeForm({
           placeholder="Email Address"
         />
         <input
-          type="number"
+          type="text"
           onChange={handleChange}
           value={employeeInfo.phoneNumber}
           name="phoneNumber"
