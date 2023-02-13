@@ -8,8 +8,8 @@ function EmployeeForm({
   handleButtonClick,
 }) {
   return (
-    <div className="form-row justify-content-center">
-      <div className="col-sm-3">
+    <div className="row d-flex justify-content-center">
+      <div className="col-sm-12 flex-column custom-form justify-content-center">
         <input
           type="text"
           onChange={handleChange}
@@ -18,8 +18,14 @@ function EmployeeForm({
           className="form-control"
           placeholder="Full Name"
         />
-      </div>
-      <div className="col-sm-3">
+        <input
+          type="text"
+          onChange={handleChange}
+          value={employeeInfo.jobTitle}
+          name="jobTitle"
+          className="form-control"
+          placeholder="Job Title"
+        />
         <input
           type="email"
           onChange={handleChange}
@@ -28,15 +34,13 @@ function EmployeeForm({
           className="form-control"
           placeholder="Email Address"
         />
-      </div>
-      <div className="col-sm-3">
         <input
-          type="text"
+          type="number"
           onChange={handleChange}
-          value={employeeInfo.jobTitle}
-          name="jobTitle"
+          value={employeeInfo.phoneNumber}
+          name="phoneNumber"
           className="form-control"
-          placeholder="Job Title"
+          placeholder="Phone Number"
         />
       </div>
       <div className="col-sm-12 d-flex justify-content-center form-buttons">

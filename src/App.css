@@ -161,10 +161,17 @@ html, body, #background {
      overflow: hidden;
 
 }
+input.form-control {
+  margin: 4px 0px 4px 24px;
+  width: 90%;
+}
  @media only screen and (max-width : 550px) {
      input.form-control {
-         width: 70%;
-         margin: 2px auto;
+         width: 75%;
+    }
+    .custom-form {
+      margin-top: 35px;
+      margin-left: 35px;
     }
 }
  @media only screen and (max-width : 550px) {

@@ -14,8 +14,9 @@ function App() {
   //id set count to 11 for new ids since 1 - 10 are used in json data
   const [employeeInfo, setEmployeeInfo] = useState({
     fullName: "",
-    emailAddress: "",
     jobTitle: "",
+    emailAddress: "",
+    phoneNumber:""
   });
   const [editId, setEditId] = useState(-1);
   //editId is used when clicked on edit button, setting current row id as state and enabling edit component
@@ -58,7 +59,7 @@ function App() {
       const newData = (data) => [...data, employeeInfo];
       employeeInfo["id"] = id;
       setTableData(newData);
-      const emptyInput = { fullName: "", emailAddress: "", jobTitle: "" };
+      const emptyInput = { fullName: "", jobTitle: "", emailAddress: "", phoneNumber: "" };
       setEmployeeInfo(emptyInput);
     }
   };
@@ -86,7 +87,7 @@ function App() {
             />
           </div>
         ) : (
-          <div className="col-sm-12 employeeForm">
+          <div className="col-sm-12 d-flex justify-content-center employeeForm">
             <EmployeeForm
               handleChange={handleChange}
               employeeInfo={employeeInfo}

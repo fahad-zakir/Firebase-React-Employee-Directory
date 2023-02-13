@@ -24,6 +24,16 @@ function EditForm({ data, tableData, setTableData }) {
       </td>
       <td>
         <input
+          type="text"
+          onChange={handleNameAttribute}
+          value={data.jobTitle}
+          name="jobTitle"
+          className="form-control"
+          placeholder="Job Title"
+        />
+      </td>
+      <td>
+        <input
           type="email"
           onChange={handleNameAttribute}
           value={data.emailAddress}
@@ -34,12 +44,12 @@ function EditForm({ data, tableData, setTableData }) {
       </td>
       <td>
         <input
-          type="text"
+          type="number"
           onChange={handleNameAttribute}
-          value={data.jobTitle}
-          name="jobTitle"
+          value={data.phoneNumber}
+          name="phoneNumber"
           className="form-control"
-          placeholder="Job Title"
+          placeholder="Phone Number"
         />
       </td>
       <td className="td-custom">

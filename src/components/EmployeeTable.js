@@ -15,17 +15,13 @@ function EmployeeTable({
       className="col-sm-12 d-flex justify-content-center"
       onSubmit={handleUpdate}
     >
-      <Table
-        striped
-        bordered
-        hover
-        className="tableData table-responsive-sm"
-      >
+      <Table striped bordered hover className="tableData table-responsive-sm">
         <thead>
           <tr>
             <th>First Name</th>
-            <th>Email Address</th>
             <th>Job Title</th>
+            <th>Email Address</th>
+            <th>Phone Number</th>
           </tr>
         </thead>
         <tbody>
@@ -41,8 +37,9 @@ function EmployeeTable({
             ) : (
               <tr key={index}>
                 <td>{data.fullName}</td>
-                <td>{data.emailAddress}</td>
                 <td>{data.jobTitle}</td>
+                <td>{data.emailAddress}</td>
+                <td>{data.phoneNumber}</td>
                 <td className="td-custom">
                   <button
                     type="button"
