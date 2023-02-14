@@ -50,10 +50,6 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     //if all fields are not empty '', then checkEmptyInput is true;
-    const checkEmptyInput = !Object.values(employeeInfo).every(
-      (res) => res === ""
-    );
-    if (checkEmptyInput) {
     //id was not a property for employee form so we are adding key value pair
       setIdCount(id + 1);
       const newData = (data) => [...data, employeeInfo];
@@ -61,7 +57,6 @@ function App() {
       setTableData(newData);
       const emptyInput = { fullName: "", jobTitle: "", emailAddress: "", phoneNumber: "" };
       setEmployeeInfo(emptyInput);
-    }
   };
   //these handlers are being used to compare with current row id so you can get the row clicked on
   const handleUpdate = (e) => {
