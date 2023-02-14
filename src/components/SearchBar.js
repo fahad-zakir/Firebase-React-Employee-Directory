@@ -11,6 +11,7 @@ function SearchBar({ handleButtonClick, searchEmployee }) {
           name="search"
           placeholder="search by name, email, or job title..."
           autoComplete="off"
+          required
         />
       </div>
       <div className="search--buttons col-sm-12 d-flex justify-content-center">
