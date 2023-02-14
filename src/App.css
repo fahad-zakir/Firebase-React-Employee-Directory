@@ -184,12 +184,12 @@ input.form-control {
       width: 100% !important;
     }
     .error-msg {
-     font-size: 12px;
+     font-size: 10px;
     }
 }
 .error-msg {
     color: #f16051;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 1px;
     font-weight: 500;
     padding-top: 20px;
