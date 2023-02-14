@@ -183,5 +183,15 @@ input.form-control {
       margin-top: 7%;
       width: 100% !important;
     }
+    .error-msg {
+     font-size: 12px;
+    }
+}
+.error-msg {
+    color: #f16051;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-top: 20px;
 }
  

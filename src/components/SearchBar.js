@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-function SearchBar({ handleButtonClick, searchEmployee }) {
+function SearchBar({ handleButtonClick, searchEmployee, errorMsg }) {
   return (
     <form className="search--form" onSubmit={searchEmployee}>
       <div className="col-sm-12 d-flex justify-content-center">
@@ -13,6 +13,9 @@ function SearchBar({ handleButtonClick, searchEmployee }) {
           autoComplete="off"
           required
         />
+      </div>
+      <div className="error-msg col-sm-12 d-flex justify-content-center">
+        {errorMsg}
       </div>
       <div className="search--buttons col-sm-12 d-flex justify-content-center">
         <button className="btn btn-info search--button">Search Employee</button>
