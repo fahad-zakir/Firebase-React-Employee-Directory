@@ -30,52 +30,9 @@ html, body, #background {
      font-weight: 900;
      padding-left: 20px;
 }
- .form-label{
-     justify-content: flex-start;
-}
  @media only screen and (max-width : 500px) {
      .nav--logo_text {
          font-size: 1.1em;
-    }
-}
- @media only screen and (max-width : 500px) {
-     ::-webkit-input-placeholder {
-        /* WebKit browsers */
-         color: transparent;
-    }
-     :-moz-placeholder {
-        /* Mozilla Firefox 4 to 18 */
-         color: transparent;
-    }
-     ::-moz-placeholder {
-        /* Mozilla Firefox 19+ */
-         color: transparent;
-    }
-     :-ms-input-placeholder {
-        /* Internet Explorer 10+ */
-         color: transparent;
-    }
-     input::placeholder {
-         color: transparent;
-    }
-     textarea::-webkit-input-placeholder {
-        /* WebKit browsers */
-         color: transparent;
-    }
-     textarea:-moz-placeholder {
-        /* Mozilla Firefox 4 to 18 */
-         color: transparent;
-    }
-     textarea::-moz-placeholder {
-        /* Mozilla Firefox 19+ */
-         color: transparent;
-    }
-     textarea:-ms-input-placeholder {
-        /* Internet Explorer 10+ */
-         color: transparent;
-    }
-     textarea::placeholder {
-         color: transparent;
     }
 }
  .nav--icon {
@@ -205,7 +162,7 @@ html, body, #background {
      border: none;
      font-size:19.2px;
      transition-duration: 0.15s;
-     color:#f8f9fa;
+     color:rgb(44, 41, 41)
 }
  input.form-control:focus{
      border:5px solid #4474d3;
@@ -219,6 +176,46 @@ html, body, #background {
      .custom-form {
          margin-top: 35px;
          margin-left: 35px;
+    }
+}
+ @media only screen and (max-width : 500px) {
+     ::-webkit-input-placeholder {
+        /* WebKit browsers */
+         color: transparent;
+    }
+     :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+         color: transparent;
+    }
+     ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+         color: transparent;
+    }
+     :-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+         color: transparent;
+    }
+     input::placeholder {
+         color: transparent;
+    }
+     textarea::-webkit-input-placeholder {
+        /* WebKit browsers */
+         color: transparent;
+    }
+     textarea:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+         color: transparent;
+    }
+     textarea::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+         color: transparent;
+    }
+     textarea:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+         color: transparent;
+    }
+     textarea::placeholder {
+         color: transparent;
     }
 }
  @media only screen and (max-width : 550px) {

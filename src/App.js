@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
+import { addDoc, collection, setDoc, deleteDoc, doc, query, onSnapshot } from "firebase/firestore";
+import { db } from './firebase_setup/firebase';
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import data from "./data.json";
@@ -8,9 +11,13 @@ import EmployeeForm from "./components/EmployeeForm";
 import EmployeeTable from "./components/EmployeeTable";
 
 function App() {
+const [info, setInfo] = useState([]);
+ const [isUpdate, setisUpdate] = useState(false);
+ const [docId, setdocId] = useState("");
+ const [employeeData, setEmployeeData] = useState();
   const [toggleComponent, setToggleComponent] = useState(true);
   const [tableData, setTableData] = useState([]);
-  const [id, setIdCount] = useState(11);
+  const [id, setIdCount] = useState(0);
   //id set count to 11 for new ids since 1 - 10 are used in json data
   const [employeeInfo, setEmployeeInfo] = useState({
     fullName: "",
@@ -22,6 +29,20 @@ function App() {
   const [errorMsg, setErrorMsg] = useState("");
   const [searchInput, setSearchInput] = useState("");
   //editId is used when clicked on edit button, setting current row id as state and enabling edit component
+ useEffect(() => {
+   const getData = async () => {
+     const data = await query(collection(db, "employee_data"));
+     onSnapshot(data, (querySnapshot) => {
+       const databaseInfo = [];
+       querySnapshot.forEach((doc) => {
+         databaseInfo.push(doc.data().employeeData);
+       });
+       setEmployeeData(databaseInfo);
+     });
+     console.log(Array.isArray(employeeData))
+   };
+   getData();
+ }, []);
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
   };
@@ -29,7 +50,7 @@ function App() {
     e.preventDefault();
     const filterBy = e.target.elements.search.value.toLowerCase();
     //filtering data json for what was typed in the input
-    const filterObject = data.find(
+    const filterObject = employeeData.find(
       (obj) =>
         obj.fullName.toLowerCase() === filterBy ||
         obj.jobTitle.toLowerCase() === filterBy ||
@@ -62,9 +83,9 @@ function App() {
     //if all fields are not empty '', then checkEmptyInput is true;
     //id was not a property for employee form so we are adding key value pair
     setIdCount(id + 1);
-    const newData = (data) => [...data, employeeInfo];
+    const newEmployee = (data) => [...data, employeeInfo];
     employeeInfo["id"] = id;
-    setTableData(newData);
+    setTableData(newEmployee);
     const emptyInput = {
       fullName: "",
       jobTitle: "",
@@ -72,7 +93,17 @@ function App() {
       phoneNumber: "",
     };
     setEmployeeInfo(emptyInput);
+    const ref = collection(db, "employee_data");
+    let data = {
+         employeeData: employeeInfo
+       };
+       try {
+         addDoc(ref, data);
+       } catch (err) {
+         console.log(err);
+       }
   };
+
   //these handlers are being used to compare with current row id so you can get the row clicked on
   const handleUpdate = (e) => {
     e.preventDefault();
