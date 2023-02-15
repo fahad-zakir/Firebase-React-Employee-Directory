@@ -40,7 +40,7 @@ function App() {
       e.target.elements.search.value = "";
       setErrorMsg("");
     } else {
-      setErrorMsg("Employee not found.");
+      setErrorMsg("Employee not found");
     }
   };
 
