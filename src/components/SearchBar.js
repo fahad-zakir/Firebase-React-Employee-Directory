@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-function SearchBar({ handleButtonClick, searchEmployee, errorMsg }) {
+function SearchBar({ handleButtonClick, searchEmployee, errorMsg, handleSearchInput }) {
   return (
     <form className="search--form" onSubmit={searchEmployee}>
       <div className="col-sm-12 d-flex justify-content-center">
@@ -12,6 +12,7 @@ function SearchBar({ handleButtonClick, searchEmployee, errorMsg }) {
           placeholder="search by name, email, or job title..."
           autoComplete="off"
           required
+          onChange={handleSearchInput}
         />
       </div>
       <div className="error-msg col-sm-12 d-flex justify-content-center">

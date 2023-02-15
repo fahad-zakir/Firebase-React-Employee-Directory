@@ -20,6 +20,7 @@ function App() {
   });
   const [editId, setEditId] = useState(-1);
   const [errorMsg, setErrorMsg] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   //editId is used when clicked on edit button, setting current row id as state and enabling edit component
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
@@ -43,6 +44,10 @@ function App() {
       setErrorMsg("Employee not found");
     }
   };
+  const handleSearchInput = (e) => {
+    setSearchInput(e.target.value);
+    if (searchInput) setErrorMsg("");
+  }
 
   //handleChange to get target value and update state in adding inputs for employee form
   const handleChange = (e) => {
@@ -90,6 +95,7 @@ function App() {
               handleButtonClick={handleButtonClick}
               searchEmployee={searchEmployee}
               errorMsg={errorMsg}
+              handleSearchInput={handleSearchInput}
             />
           </div>
         ) : (
