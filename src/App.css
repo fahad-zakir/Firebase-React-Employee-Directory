@@ -116,7 +116,6 @@ html, body, #background {
 }
  .form-container {
      margin:auto;
-     margin-bottom: 100px;
      display: flex;
      width: 450px;
      color:#f8f9fa;
@@ -194,6 +193,7 @@ html, body, #background {
      background-color: rgb(225, 217, 225);
      border-radius: 6px;
      overflow: hidden;
+     font-size: 1.1em !important;
 }
  input.form-control {
      margin-bottom: 20px;
