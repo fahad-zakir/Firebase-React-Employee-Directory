@@ -25,7 +25,7 @@ function SearchBar({ handleButtonClick, searchEmployee, errorMsg, handleSearchIn
           type="button"
           className="btn btn-success add--button"
         >
-          Add
+          Add Employee
         </Button>
       </div>
     </form>
