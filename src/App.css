@@ -3,7 +3,6 @@ html, body, #background {
      min-height: 100vh;
      background-color: #282D35;
 }
-
  .main {
      margin: 0;
      padding-top: 20px;
@@ -30,7 +29,9 @@ html, body, #background {
      font-size: 2.2em;
      font-weight: 900;
      padding-left: 20px;
-     
+}
+ .form-label{
+     justify-content: flex-start;
 }
  @media only screen and (max-width : 500px) {
      .nav--logo_text {
@@ -88,16 +89,14 @@ html, body, #background {
      width: 55px;
      border-radius: 4px;
      margin-top: 16%;
-
 }
  @media only screen and (max-width : 500px) {
      .btn-td-save {
          font-weight: 400;
-
     }
-      .btn-td {
-      margin-top: 20px;
-      padding-right: 15px;
+     .btn-td {
+         margin-top: 20px;
+         padding-right: 15px;
     }
 }
  .btn-td {
@@ -108,23 +107,30 @@ html, body, #background {
      width: 20px;
      padding: 12px !important;
 }
-.form-container {
-    margin:auto;
-    margin-bottom: 100px;
-    display: flex;
-    width: 450px;
-    color:#f8f9fa;
-    box-shadow: 1px 2px 20px -6px rgba(0,0,0,0.67);
-    font-family:sans-serif;
-    background-color: #212529;
-    padding:40px 20px;
-    border-radius: 10px;
+ .input-row {
+     width:100%;
+     height:fit-content;
+     display: grid;
+     grid-template-columns: 10% 90%;
+     grid-template-rows: 50px;
 }
-#form-signup {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 2em;
-    font-weight: 900;
+ .form-container {
+     margin:auto;
+     margin-bottom: 100px;
+     display: flex;
+     width: 450px;
+     color:#f8f9fa;
+     box-shadow: 1px 2px 20px -6px rgba(0,0,0,0.67);
+     font-family:sans-serif;
+     background-color: #212529;
+     padding:40px 20px;
+     border-radius: 10px;
+}
+ #form-signup {
+     margin-bottom: 20px;
+     text-align: center;
+     font-size: 2em;
+     font-weight: 900;
 }
  .form-buttons {
      margin: 10px 10px 0px 10px;
@@ -150,8 +156,11 @@ html, body, #background {
      .search--input {
          width: 200px;
     }
-    #form-signup {
-     font-size: 1.5em;
+     #form-signup {
+         font-size: 1.5em;
+    }
+     .form-container {
+         width: 90%;
     }
 }
  ::placeholder {
@@ -174,7 +183,6 @@ html, body, #background {
  .search--buttons {
      margin: 28px 0px 16px 0px;
      padding: 4px;
-
 }
  .search--button {
      margin-right: 8px;
@@ -186,62 +194,63 @@ html, body, #background {
      background-color: rgb(225, 217, 225);
      border-radius: 6px;
      overflow: hidden;
-
 }
-
-input.form-control {
-  margin: 0px 0px 24px 0px;
-  background-color:rgb(216, 206, 206);
-  height: 45px;
-  width: 380px;
-  border-radius: 10px;
+ input.form-control {
+     margin-bottom: 20px;
+     padding:10px;
+     border-radius: 10px;
+     height: 50px;
+     background-color:rgb(216, 206, 206);
+     outline: none;
+     border: none;
+     font-size:19.2px;
+     transition-duration: 0.15s;
+     color:#f8f9fa;
 }
-input.form-control:focus{
-    border:5px solid #4474d3;
-    height: 49px;
-    margin-top:2px;
+ input.form-control:focus{
+     border:5px solid #4474d3;
+     height: 49px;
+     margin-top:2px;
 }
  @media only screen and (max-width : 550px) {
      input.form-control {
-         width: 75%;
+         width: 100%;
     }
-    .custom-form {
-      margin-top: 35px;
-      margin-left: 35px;
+     .custom-form {
+         margin-top: 35px;
+         margin-left: 35px;
     }
 }
  @media only screen and (max-width : 550px) {
-      .search--input {
+     .search--input {
          margin-top: 70px;
     }
-    .tableData {
-      margin-top: 7%;
-      width: 100% !important;
+     .tableData {
+         margin-top: 7%;
+         width: 100% !important;
     }
-    .error-msg {
-     font-size: 10px;
+     .error-msg {
+         font-size: 10px;
     }
 }
-.error-msg {
-    color: #f16051;
-    font-size: 16px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    padding-top: 20px;
+ .error-msg {
+     color: #f16051;
+     font-size: 16px;
+     letter-spacing: 1px;
+     font-weight: 500;
+     padding-top: 20px;
 }
-.new-employee {
+ .new-employee {
      font-size: 2em;
      font-weight: 900;
 }
-.add--button {
+ .add--button {
      border-radius: 10px !important;
 }
- 
-label{
-    font-size: 1em;
-    font-weight: 500;
+ label{
+     font-size: 1em;
+     font-weight: 500;
 }
-
-button:hover{
-    background-color: #036666;
+ button:hover{
+     background-color: #036666;
 }

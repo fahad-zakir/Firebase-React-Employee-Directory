@@ -16,52 +16,52 @@ function EmployeeForm({
         Add Employee
       </h3>
       <div className="col-sm-12">
-      <label>Employee Name:</label>
-      <input
-        type="text"
-        onChange={handleChange}
-        value={employeeInfo.fullName}
-        name="fullName"
-        className="form-control"
-        placeholder="Full Name"
-        required
-      />
+        <label>Employee Name:</label>
+        <input
+          type="text"
+          onChange={handleChange}
+          value={employeeInfo.fullName}
+          name="fullName"
+          className="form-control"
+          placeholder="Full Name"
+          required
+        />
       </div>
-            <div className="col-sm-12">
-<label >Job Title</label>
-      <input
-        type="text"
-        onChange={handleChange}
-        value={employeeInfo.jobTitle}
-        name="jobTitle"
-        className="form-control"
-        placeholder="Job Title"
-        required
-      />
+      <div className="col-sm-12">
+        <label>Job Title</label>
+        <input
+          type="text"
+          onChange={handleChange}
+          value={employeeInfo.jobTitle}
+          name="jobTitle"
+          className="form-control"
+          placeholder="Job Title"
+          required
+        />
       </div>
-                  <div className="col-sm-12">
-<label >Email</label>
-      <input
-        type="email"
-        onChange={handleChange}
-        value={employeeInfo.emailAddress}
-        name="emailAddress"
-        className="form-control"
-        placeholder="Email Address"
-        required
-      />
+      <div className="col-sm-12">
+        <label>Email</label>
+        <input
+          type="email"
+          onChange={handleChange}
+          value={employeeInfo.emailAddress}
+          name="emailAddress"
+          className="form-control"
+          placeholder="Email Address"
+          required
+        />
       </div>
-                  <div className="col-sm-12">
-<label >Phone Number</label>
-      <input
-        type="text"
-        onChange={handleChange}
-        value={employeeInfo.phoneNumber}
-        name="phoneNumber"
-        className="form-control"
-        placeholder="Phone Number"
-        required
-      />
+      <div className="col-sm-12">
+        <label>Phone Number</label>
+        <input
+          type="text"
+          onChange={handleChange}
+          value={employeeInfo.phoneNumber}
+          name="phoneNumber"
+          className="form-control"
+          placeholder="Phone Number"
+          required
+        />
       </div>
       <div className="col-sm-12 d-flex justify-content-center form-buttons">
         <input
