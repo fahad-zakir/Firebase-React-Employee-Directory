@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-
-import { addDoc, collection, setDoc, deleteDoc, doc, query, onSnapshot } from "firebase/firestore";
+import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
+import EmployeeDataService from "../src/firebase_crud_actions/crud";
+// import { addDoc, collection, setDoc, deleteDoc, doc, query, onSnapshot } from "firebase/firestore";
 import { db } from './firebase_setup/firebase';
+import { v4 as uuidv4 } from "uuid"; 
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import data from "./data.json";
@@ -11,13 +13,14 @@ import EmployeeForm from "./components/EmployeeForm";
 import EmployeeTable from "./components/EmployeeTable";
 
 function App() {
-const [info, setInfo] = useState([]);
- const [isUpdate, setisUpdate] = useState(false);
- const [docId, setdocId] = useState("");
- const [employeeData, setEmployeeData] = useState();
+  const [info, setInfo] = useState([]);
+  const [isUpdate, setisUpdate] = useState(false);
+  const [docId, setdocId] = useState("");
+  const [employeeDatabase, setEmployeeDatabase] = useState();
   const [toggleComponent, setToggleComponent] = useState(true);
+  const [toggleForm, setToggleForm] = useState(true);
   const [tableData, setTableData] = useState([]);
-  const [id, setIdCount] = useState(0);
+  const [message, setMessage] = useState({ error: false, msg: "" });
   //id set count to 11 for new ids since 1 - 10 are used in json data
   const [employeeInfo, setEmployeeInfo] = useState({
     fullName: "",
@@ -29,20 +32,16 @@ const [info, setInfo] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [searchInput, setSearchInput] = useState("");
   //editId is used when clicked on edit button, setting current row id as state and enabling edit component
- useEffect(() => {
-   const getData = async () => {
-     const data = await query(collection(db, "employee_data"));
-     onSnapshot(data, (querySnapshot) => {
-       const databaseInfo = [];
-       querySnapshot.forEach((doc) => {
-         databaseInfo.push(doc.data().employeeData);
-       });
-       setEmployeeData(databaseInfo);
-     });
-     console.log(Array.isArray(employeeData))
-   };
-   getData();
- }, []);
+  useEffect(() => {
+    getEmployees();
+
+   
+    }, []);
+    const getEmployees = async() => {
+      const data = await EmployeeDataService.getAllEmployees();
+      setEmployeeDatabase(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log(employeeDatabase)
+    }
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
   };
@@ -50,7 +49,7 @@ const [info, setInfo] = useState([]);
     e.preventDefault();
     const filterBy = e.target.elements.search.value.toLowerCase();
     //filtering data json for what was typed in the input
-    const filterObject = employeeData.find(
+    const filterObject = employeeDatabase.find(
       (obj) =>
         obj.fullName.toLowerCase() === filterBy ||
         obj.jobTitle.toLowerCase() === filterBy ||
@@ -77,15 +76,22 @@ const [info, setInfo] = useState([]);
       [e.target.name]: e.target.value,
     });
     setEmployeeInfo(newInfo);
+    setMessage("");
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage("");
+    if (Object.values(employeeInfo).some((value) => value === undefined || value === "")) {
+      setMessage({ error: true, msg: "All fields are required!" });
+      return;
+    }
+
     //if all fields are not empty '', then checkEmptyInput is true;
     //id was not a property for employee form so we are adding key value pair
-    setIdCount(id + 1);
     const newEmployee = (data) => [...data, employeeInfo];
-    employeeInfo["id"] = id;
+    employeeInfo["id"] = uuidv4();
     setTableData(newEmployee);
+    setToggleForm(false);
     const emptyInput = {
       fullName: "",
       jobTitle: "",
@@ -93,15 +99,22 @@ const [info, setInfo] = useState([]);
       phoneNumber: "",
     };
     setEmployeeInfo(emptyInput);
-    const ref = collection(db, "employee_data");
-    let data = {
-         employeeData: employeeInfo
-       };
-       try {
-         addDoc(ref, data);
-       } catch (err) {
-         console.log(err);
-       }
+    try {
+      await EmployeeDataService.addEmployees(employeeInfo);
+      console.log('worked')
+    } catch (err) {
+      console.log('did not work')
+    }
+    // const ref = collection(db, "employee_data");
+    // let data = {
+    //      employeeData: employeeInfo
+    //    };
+    //    try {
+    //      addDoc(ref, data);
+    //    } catch (err) {
+    //      console.log(err);
+    //    }
+    //    console.log(employeeDatabase)
   };
 
   //these handlers are being used to compare with current row id so you can get the row clicked on
@@ -116,6 +129,7 @@ const [info, setInfo] = useState([]);
 
   return (
     <div className="main">
+      {/* <pre>{JSON.stringify(employeeDatabase, undefined, 8)}</pre> */}
       <div className="row">
         <div className="col-sm-12">
           <Navbar />
@@ -130,13 +144,28 @@ const [info, setInfo] = useState([]);
             />
           </div>
         ) : (
-          <div className="col-sm-12 d-flex justify-content-center employeeForm">
-            <EmployeeForm
-              handleChange={handleChange}
-              employeeInfo={employeeInfo}
-              handleSubmit={handleSubmit}
-              handleButtonClick={handleButtonClick}
-            />
+          <div className="col-sm-12 row d-flex justify-content-center employeeForm">
+            {message?.msg && (
+              <Alert variant="danger" onClose={() => setMessage(false)}>
+                {message?.msg}
+                <button
+                  className="alert-msg-btn"
+                  onClick={() => setMessage("")}
+                >
+                  x
+                </button>
+              </Alert>
+            )}
+            {toggleForm ? (
+              <div className="col-sm-12 d-flex justify-content-center">
+                <EmployeeForm
+                  handleChange={handleChange}
+                  employeeInfo={employeeInfo}
+                  handleSubmit={handleSubmit}
+                  handleButtonClick={handleButtonClick}
+                />
+              </div>
+            ) : null}
           </div>
         )}
         {tableData.length > 0 ? (
@@ -148,11 +177,11 @@ const [info, setInfo] = useState([]);
               handleEdit={handleEdit}
               employeeInfo={employeeInfo}
               handleUpdate={handleUpdate}
+              toggleForm={toggleForm}
+              setToggleForm={setToggleForm}
             />
           </div>
-        ) : (
-          <p></p>
-        )}
+        ) : null}
       </div>
     </div>
   );

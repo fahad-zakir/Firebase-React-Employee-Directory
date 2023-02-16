@@ -24,7 +24,7 @@ function EmployeeForm({
           name="fullName"
           className="form-control"
           placeholder="Full Name"
-          required
+          
         />
       </div>
       <div className="col-sm-12">
@@ -36,7 +36,7 @@ function EmployeeForm({
           name="jobTitle"
           className="form-control"
           placeholder="Job Title"
-          required
+          
         />
       </div>
       <div className="col-sm-12">
@@ -48,7 +48,7 @@ function EmployeeForm({
           name="emailAddress"
           className="form-control"
           placeholder="Email Address"
-          required
+          
         />
       </div>
       <div className="col-sm-12">
@@ -60,7 +60,7 @@ function EmployeeForm({
           name="phoneNumber"
           className="form-control"
           placeholder="Phone Number"
-          required
+          
         />
       </div>
       <div className="col-sm-12 d-flex justify-content-center form-buttons">

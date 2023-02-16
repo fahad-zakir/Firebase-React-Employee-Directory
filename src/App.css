@@ -40,7 +40,7 @@ html, body, #background {
      margin-right: 7px;
 }
  .employeeForm {
-     margin-top: 8%;
+     margin-top: 6%;
 }
  .btn-td-save {
      width: 55px;
@@ -248,6 +248,19 @@ html, body, #background {
      font-size: 1em;
      font-weight: 500;
 }
- button:hover{
-     background-color: #036666;
+.alert {
+     width: 450px;
 }
+.alert-msg-btn {
+     font-size: 1.2em;
+     float: right;
+     color: red;
+     padding: 0;
+     margin-right: 5px;
+border: none;
+background: none;
+}
+button.alert-msg-btn:hover {
+      color:#291d1d;
+      transition: 0.7s;
+  }
