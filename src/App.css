@@ -264,3 +264,8 @@ button.alert-msg-btn:hover {
       color:#291d1d;
       transition: 0.7s;
   }
+
+.add--employee {
+     width: 200px;
+     border-radius: 10px;
+  }

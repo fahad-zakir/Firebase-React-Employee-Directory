@@ -1,6 +1,8 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import EditForm from "./EditForm";
+import { Button } from "react-bootstrap";
+
 
 function EmployeeTable({
   tableData,
@@ -9,12 +11,21 @@ function EmployeeTable({
   editId,
   employeeInfo,
   handleUpdate,
+  handleToggleForm,
+  toggleForm,
+  toggleSearch,
+  toggleTableButton
 }) {
   return (
     <form
-      className="col-sm-12 d-flex justify-content-center"
+      className="col-sm-12 d-flex flex-column align-items-center"
       onSubmit={handleUpdate}
     >
+      {!toggleForm ?
+      <button type="button" className="btn-success add--employee" onClick={handleToggleForm}>
+        Add Employee
+      </button>
+      : null }
       <Table striped bordered hover className="tableData table-responsive-sm">
         <thead>
           <tr>

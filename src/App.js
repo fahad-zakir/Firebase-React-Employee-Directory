@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Alert } from "react-bootstrap";
 import EmployeeDataService from "../src/firebase_crud_actions/crud";
 // import { addDoc, collection, setDoc, deleteDoc, doc, query, onSnapshot } from "firebase/firestore";
 import { db } from './firebase_setup/firebase';
 import { v4 as uuidv4 } from "uuid"; 
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import data from "./data.json";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import EmployeeForm from "./components/EmployeeForm";
@@ -19,9 +18,11 @@ function App() {
   const [employeeDatabase, setEmployeeDatabase] = useState();
   const [toggleComponent, setToggleComponent] = useState(true);
   const [toggleForm, setToggleForm] = useState(true);
+  const [toggleSearch, setToggleSearch] = useState(true);
+  const [toggleTableButton, setToggleTableButton] = useState(true);
   const [tableData, setTableData] = useState([]);
   const [message, setMessage] = useState({ error: false, msg: "" });
-  //id set count to 11 for new ids since 1 - 10 are used in json data
+
   const [employeeInfo, setEmployeeInfo] = useState({
     fullName: "",
     jobTitle: "",
@@ -44,6 +45,7 @@ function App() {
     }
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
+    setToggleSearch(!toggleSearch);
   };
   const searchEmployee = (e) => {
     e.preventDefault();
@@ -85,13 +87,10 @@ function App() {
       setMessage({ error: true, msg: "All fields are required!" });
       return;
     }
-
-    //if all fields are not empty '', then checkEmptyInput is true;
     //id was not a property for employee form so we are adding key value pair
     const newEmployee = (data) => [...data, employeeInfo];
     employeeInfo["id"] = uuidv4();
     setTableData(newEmployee);
-    setToggleForm(false);
     const emptyInput = {
       fullName: "",
       jobTitle: "",
@@ -99,22 +98,13 @@ function App() {
       phoneNumber: "",
     };
     setEmployeeInfo(emptyInput);
+    setToggleForm(!toggleForm);
     try {
       await EmployeeDataService.addEmployees(employeeInfo);
       console.log('worked')
     } catch (err) {
       console.log('did not work')
     }
-    // const ref = collection(db, "employee_data");
-    // let data = {
-    //      employeeData: employeeInfo
-    //    };
-    //    try {
-    //      addDoc(ref, data);
-    //    } catch (err) {
-    //      console.log(err);
-    //    }
-    //    console.log(employeeDatabase)
   };
 
   //these handlers are being used to compare with current row id so you can get the row clicked on
@@ -126,6 +116,11 @@ function App() {
   const handleEdit = (id) => {
     setEditId(id);
   };
+
+  const handleToggleForm = () => {
+    setToggleForm(!toggleForm);
+    setToggleSearch(!toggleSearch);
+  }
 
   return (
     <div className="main">
@@ -168,7 +163,7 @@ function App() {
             ) : null}
           </div>
         )}
-        {tableData.length > 0 ? (
+        {tableData.length > 0 && !toggleSearch ? (
           <div className="col-sm-12 d-flex justify-content-center">
             <EmployeeTable
               tableData={tableData}
@@ -178,7 +173,8 @@ function App() {
               employeeInfo={employeeInfo}
               handleUpdate={handleUpdate}
               toggleForm={toggleForm}
-              setToggleForm={setToggleForm}
+              handleToggleForm={handleToggleForm}
+              toggleTableButton={setToggleTableButton}
             />
           </div>
         ) : null}
