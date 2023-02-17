@@ -31,6 +31,12 @@ function App() {
   const getEmployees = async () => {
     const data = await EmployeeDataService.getAllEmployees();
     setEmployeeList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    const addId = employeeList.find((obj) => 
+    obj.fullName === employeeInfo.fullName
+    );
+    setEmployeeInfo(addId);
+    //console.log(employeeInfo)
+    //code phase to only show name that is added one by one instead of list
   };
 
   const searchEmployee = (e) => {
@@ -79,6 +85,8 @@ function App() {
       setMessage({ error: true, msg: "All fields are required!" });
       return;
     };
+    const newEmployee = (data) => [...data, employeeInfo];
+
     const emptyInput = {
       fullName: "",
       jobTitle: "",
@@ -92,7 +100,7 @@ function App() {
     } catch (err) {
       setMessage({ error: true, msg: "Error in adding employee" });
     }
-    setEmployeeInfo(emptyInput);
+    // setEmployeeInfo(emptyInput);
   };
   //toggle handlers
   const handleButtonClick = () => {
