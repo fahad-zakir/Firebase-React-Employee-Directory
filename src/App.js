@@ -10,7 +10,6 @@ import EmployeeList from "./components/EmployeeList";
 
 function App() {
   const [toggleComponent, setToggleComponent] = useState(true);
-  const [toggleForm, setToggleForm] = useState(true);
   const [toggleSearch, setToggleSearch] = useState(true);
   const [employeeList, setEmployeeList] = useState([]);
   const [message, setMessage] = useState({ error: false, msg: "" });
@@ -79,10 +78,7 @@ function App() {
     ) {
       setMessage({ error: true, msg: "All fields are required!" });
       return;
-    }
-    //id was not a property for employee form so we are adding key value pair
-    const newEmployee = (data) => [...data, employeeInfo];
-    // setEmployeeList(newEmployee);
+    };
     const emptyInput = {
       fullName: "",
       jobTitle: "",
@@ -97,21 +93,16 @@ function App() {
       setMessage({ error: true, msg: "Error in adding employee" });
     }
     setEmployeeInfo(emptyInput);
-    // setToggleForm(!toggleForm);
   };
   //toggle handlers
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
     setToggleSearch(!toggleSearch);
 
-    const handleToggleForm = () => {
-      setToggleForm(!toggleForm);
-      setToggleSearch(!toggleSearch);
-    };
   };
 
   //////////////////////////////////////////////
-  //Update handlers
+  //Update handlers 
   //////////////////////////////////////////////
   //these handlers are being used to compare with current row id so you can get the row clicked on
   const handleUpdate = async (e) => {
@@ -135,7 +126,6 @@ function App() {
   const handleEdit = (id) => {
     setEditId(id);
   };
-  // get data from firestore for update, and update using update method
 
   return (
     <div className="main">
@@ -168,32 +158,26 @@ function App() {
                 </button>
               </Alert>
             )}
-            {toggleForm ? (
               <div className="col-sm-12 d-flex justify-content-center">
                 <AddEmployee
-                  editId={editId}
-                  setEditId={setEditId}
                   handleChange={handleChange}
                   employeeInfo={employeeInfo}
-                  setEmployeeInfo={setEmployeeInfo}
                   handleSubmit={handleSubmit}
                   handleButtonClick={handleButtonClick}
                 />
               </div>
-            ) : null}
+
           </div>
         )}
         {employeeList.length > 0 ? (
           <div className="col-sm-12 d-flex justify-content-center">
             <EmployeeList
-              getEmployees={getEmployees}
               employeeList={employeeList}
               setEmployeeList={setEmployeeList}
               editId={editId}
               handleEdit={handleEdit}
               employeeInfo={employeeInfo}
               handleUpdate={handleUpdate}
-              toggleForm={toggleForm}
             />
           </div>
         ) : null}

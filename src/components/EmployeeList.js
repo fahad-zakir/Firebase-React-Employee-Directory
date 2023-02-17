@@ -10,12 +10,7 @@ function EmployeeList({
   handleEdit,
   editId,
   employeeInfo,
-  handleUpdate,
-  getEmployees,
-  handleToggleForm,
-  toggleForm,
-  toggleSearch,
-  toggleTableButton,
+  handleUpdate
 }) {
 
   return (
