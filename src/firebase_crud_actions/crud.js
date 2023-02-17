@@ -19,7 +19,7 @@ class EmployeeDataService {
     updateEmployee = (id, updatedEmployee) => {
         const employeeDoc = doc(db, "employees", id);
         // check for existing employee based on id
-        return updateDoc(updateDoc, updatedEmployee);
+        return updateDoc(employeeDoc, updatedEmployee);
     };
     deleteEmployee = (id) => {
         const employeeDoc = doc(db, "employees", id);

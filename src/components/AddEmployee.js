@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 
-function EmployeeForm({
+function AddEmployee({
   handleChange,
   employeeInfo,
   handleSubmit,
-  handleButtonClick,
+  handleButtonClick
 }) {
   return (
     <form
@@ -24,7 +24,6 @@ function EmployeeForm({
           name="fullName"
           className="form-control"
           placeholder="Full Name"
-          
         />
       </div>
       <div className="col-sm-12">
@@ -36,7 +35,6 @@ function EmployeeForm({
           name="jobTitle"
           className="form-control"
           placeholder="Job Title"
-          
         />
       </div>
       <div className="col-sm-12">
@@ -48,7 +46,6 @@ function EmployeeForm({
           name="emailAddress"
           className="form-control"
           placeholder="Email Address"
-          
         />
       </div>
       <div className="col-sm-12">
@@ -60,7 +57,6 @@ function EmployeeForm({
           name="phoneNumber"
           className="form-control"
           placeholder="Phone Number"
-          
         />
       </div>
       <div className="col-sm-12 d-flex justify-content-center form-buttons">
@@ -81,4 +77,4 @@ function EmployeeForm({
   );
 }
 
-export default EmployeeForm;
+export default AddEmployee;

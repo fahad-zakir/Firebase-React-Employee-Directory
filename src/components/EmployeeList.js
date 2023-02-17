@@ -1,32 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Table from "react-bootstrap/Table";
-import EditForm from "./EditForm";
+import UpdateEmployee from "./UpdateEmployee";
 import { Button } from "react-bootstrap";
+import EmployeeDataService from "../firebase_crud_actions/crud"
 
-
-function EmployeeTable({
-  tableData,
-  setTableData,
+function EmployeeList({
+  employeeList,
+  setEmployeeList,
   handleEdit,
   editId,
   employeeInfo,
   handleUpdate,
+  getEmployees,
   handleToggleForm,
   toggleForm,
   toggleSearch,
-  toggleTableButton
+  toggleTableButton,
 }) {
+
   return (
     <form
       className="col-sm-12 d-flex flex-column align-items-center"
       onSubmit={handleUpdate}
     >
-      {!toggleForm ?
-      <button type="button" className="btn-success add--employee" onClick={handleToggleForm}>
-        Add Employee
-      </button>
-      : null }
-      <Table striped bordered hover className="tableData table-responsive-sm">
+      <Table
+        striped
+        bordered
+        hover
+        className="employeeList table-responsive-sm"
+      >
         <thead>
           <tr>
             <th>First Name</th>
@@ -36,17 +38,18 @@ function EmployeeTable({
           </tr>
         </thead>
         <tbody>
-          {tableData.map((data, index) => {
+          {employeeList.map((data, index) => {
             return editId === data.id ? (
-              <EditForm
-                key={index}
+              <UpdateEmployee
+                key={data.id}
                 employeeInfo={employeeInfo}
                 data={data}
-                tableData={tableData}
-                setTableData={setTableData}
+                employeeList={employeeList}
+                setEmployeeList={setEmployeeList}
+                handleEdit={handleEdit}
               />
             ) : (
-              <tr key={index}>
+              <tr key={data.id}>
                 <td>{data.fullName}</td>
                 <td>{data.jobTitle}</td>
                 <td>{data.emailAddress}</td>
@@ -69,4 +72,4 @@ function EmployeeTable({
   );
 }
 
-export default EmployeeTable;
+export default EmployeeList;

@@ -1,13 +1,13 @@
 import React from "react";
 
-function EditForm({ data, tableData, setTableData }) {
+function UpdateEmployee({ data, employeeList, setEmployeeList, handleEdit }) {
   const handleNameAttribute = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    const updatedData = tableData.map((d) =>
+    const updatedData = employeeList.map((d) =>
       d.id === data.id ? { ...d, [name]: value } : d
     );
-    setTableData(updatedData);
+    setEmployeeList(updatedData);
   };
   return (
     <tr>
@@ -52,7 +52,11 @@ function EditForm({ data, tableData, setTableData }) {
         />
       </td>
       <td className="td-custom">
-        <button type="submit" className="btn-success btn-td-save">
+        <button
+          type="submit"
+          onClick={handleEdit(data.id)}
+          className="btn-success btn-td-save"
+        >
           save
         </button>
       </td>
@@ -60,4 +64,4 @@ function EditForm({ data, tableData, setTableData }) {
   );
 }
 
-export default EditForm;
+export default UpdateEmployee;

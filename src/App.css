@@ -144,7 +144,7 @@ html, body, #background {
      margin-right: 8px;
      border-radius: 10px !important;
 }
- .tableData {
+ .employeeList {
      margin-top: 5%;
      width: 80% !important;
      background-color: rgb(225, 217, 225);
@@ -222,7 +222,7 @@ html, body, #background {
      .search--input {
          margin-top: 70px;
     }
-     .tableData {
+     .employeeList {
          margin-top: 7%;
          width: 100% !important;
     }
