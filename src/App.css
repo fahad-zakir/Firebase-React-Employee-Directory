@@ -264,6 +264,19 @@ button.alert-msg-btn:hover {
       color:#291d1d;
       transition: 0.7s;
   }
+.alert-msg-success {
+     font-size: 1.2em;
+     float: right;
+     color: #155724;
+     padding: 0;
+     margin-right: 5px;
+     border: none;
+     background: none;
+}
+button.alert-msg-success:hover {
+      color:#212521;
+      transition: 0.7s;
+  }
 
 .add--employee {
      width: 200px;

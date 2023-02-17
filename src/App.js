@@ -80,7 +80,6 @@ function App() {
       setMessage({ error: true, msg: "All fields are required!" });
       return;
     }
-    console.log(employeeInfo);
     //id was not a property for employee form so we are adding key value pair
     const newEmployee = (data) => [...data, employeeInfo];
     // setEmployeeList(newEmployee);
@@ -135,7 +134,6 @@ function App() {
   //id passed when edit button clicked to set current row id that you want to edit
   const handleEdit = (id) => {
     setEditId(id);
-    console.log(id);
   };
   // get data from firestore for update, and update using update method
 
@@ -163,7 +161,7 @@ function App() {
               >
                 {message?.msg}
                 <button
-                  className="alert-msg-btn"
+                  className={message?.error ? "alert-msg-btn" : "alert-msg-success"}
                   onClick={() => setMessage("")}
                 >
                   x
@@ -185,19 +183,20 @@ function App() {
             ) : null}
           </div>
         )}
-
-        <div className="col-sm-12 d-flex justify-content-center">
-          <EmployeeList
-            getEmployees={getEmployees}
-            employeeList={employeeList}
-            setEmployeeList={setEmployeeList}
-            editId={editId}
-            handleEdit={handleEdit}
-            employeeInfo={employeeInfo}
-            handleUpdate={handleUpdate}
-            toggleForm={toggleForm}
-          />
-        </div>
+        {employeeList.length > 0 ? (
+          <div className="col-sm-12 d-flex justify-content-center">
+            <EmployeeList
+              getEmployees={getEmployees}
+              employeeList={employeeList}
+              setEmployeeList={setEmployeeList}
+              editId={editId}
+              handleEdit={handleEdit}
+              employeeInfo={employeeInfo}
+              handleUpdate={handleUpdate}
+              toggleForm={toggleForm}
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   );
