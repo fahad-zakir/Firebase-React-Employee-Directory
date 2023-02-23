@@ -94,6 +94,7 @@ function App() {
       //add newmployee to firefox db 
       const docRef = await EmployeeDataService.addEmployees(employeeInfo);
       employeeInfo["id"] = docRef.id;
+      console.log(employeeInfo)
       const newEmployee = (data) => [...data, employeeInfo];
       setLocalList(newEmployee);
       setToggleComponent(!toggleComponent);
@@ -114,6 +115,7 @@ function App() {
   //////////////////////////////////////////////
   //these handlers are being used to compare with current row id so you can get the row clicked on
   const handleUpdate = async (e) => {
+    console.log(editId)
     const updatedEmployee = localList.find((obj) => obj.id === editId);
     e.preventDefault();
     try {
