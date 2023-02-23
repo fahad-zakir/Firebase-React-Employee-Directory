@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 
 function AddEmployee({
@@ -21,11 +21,10 @@ function AddEmployee({
         <input
           type="text"
           onChange={handleChange}
-          value={employeeInfo.fullName}
+          value={employeeInfo.fullName || ""}
           name="fullName"
           className="form-control"
           placeholder="Full Name"
-          
         />
       </div>
       <div className="col-sm-12">
@@ -33,11 +32,10 @@ function AddEmployee({
         <input
           type="text"
           onChange={handleChange}
-          value={employeeInfo.jobTitle}
+          value={employeeInfo.jobTitle || ""}
           name="jobTitle"
           className="form-control"
           placeholder="Job Title"
-          
         />
       </div>
       <div className="col-sm-12">
@@ -45,11 +43,10 @@ function AddEmployee({
         <input
           type="email"
           onChange={handleChange}
-          value={employeeInfo.emailAddress}
+          value={employeeInfo.emailAddress || ""}
           name="emailAddress"
           className="form-control"
           placeholder="Email Address"
-          
         />
       </div>
       <div className="col-sm-12">
@@ -57,11 +54,10 @@ function AddEmployee({
         <input
           type="text"
           onChange={handleChange}
-          value={employeeInfo.phoneNumber}
+          value={employeeInfo.phoneNumber || ""}
           name="phoneNumber"
           className="form-control"
           placeholder="Phone Number"
-          
         />
       </div>
       <div className="col-sm-12 d-flex justify-content-center form-buttons">

@@ -20,7 +20,7 @@ function EmployeeList({
         striped
         bordered
         hover
-        className="employeeList table-responsive-sm"
+        className="employeeListDb table-responsive-sm"
       >
         <thead>
           <tr>

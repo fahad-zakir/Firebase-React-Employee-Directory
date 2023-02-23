@@ -11,7 +11,7 @@ import EmployeeList from "./components/EmployeeList";
 function App() {
   const [toggleComponent, setToggleComponent] = useState(true);
   const [toggleSearch, setToggleSearch] = useState(true);
-  const [employeeList, setEmployeeList] = useState([]);
+  const [employeeListDb, setEmployeeListDb] = useState([]);
   const [localList, setLocalList] = useState([]);
   const [message, setMessage] = useState({ error: false, msg: "" });
   const [employeeInfo, setEmployeeInfo] = useState({
@@ -30,14 +30,14 @@ function App() {
   }, []);
   const getEmployees = async () => {
     const data = await EmployeeDataService.getAllEmployees();
-    setEmployeeList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setEmployeeListDb(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
-  const searchEmployee = async(e) => {
+  const searchEmployee = async (e) => {
     e.preventDefault();
     const filterBy = e.target.elements.search.value.toLowerCase();
-    //filtering dfor what was searched in the input for search employee to see if employee exists in db
-    const findEmployee = employeeList.find(
+    //filtering for what was searched in the input for search employee to see if employee exists in db
+    const findEmployee = employeeListDb.find(
       (obj) =>
         obj.fullName.toLowerCase() === filterBy ||
         obj.jobTitle.toLowerCase() === filterBy ||
@@ -54,6 +54,7 @@ function App() {
       setErrorMsg("Employee not found");
     }
   };
+  //for clearing error msg
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
     if (searchInput) setErrorMsg("");
@@ -75,12 +76,12 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-      const emptyInput = {
-        fullName: "",
-        jobTitle: "",
-        emailAddress: "",
-        phoneNumber: "",
-      };
+    const emptyEmployeeObj = {
+      fullName: "",
+      jobTitle: "",
+      emailAddress: "",
+      phoneNumber: "",
+    };
     if (
       Object.values(employeeInfo).some(
         (value) => value === undefined || value === ""
@@ -90,6 +91,7 @@ function App() {
       return;
     }
     try {
+      //add newmployee to firefox db 
       const docRef = await EmployeeDataService.addEmployees(employeeInfo);
       employeeInfo["id"] = docRef.id;
       const newEmployee = (data) => [...data, employeeInfo];
@@ -99,17 +101,17 @@ function App() {
     } catch (err) {
       setMessage({ error: true, msg: "Error in adding employee" });
     }
-    setEmployeeInfo(emptyInput);
+    setEmployeeInfo(emptyEmployeeObj);
   };
   //toggle handlers
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
     setToggleSearch(!toggleSearch);
-    setErrorMsg("")
+    setErrorMsg("");
   };
 
   //////////////////////////////////////////////
-  //Update handlers
+  //Update functionality and update handlers
   //////////////////////////////////////////////
   //these handlers are being used to compare with current row id so you can get the row clicked on
   const handleUpdate = async (e) => {
@@ -117,11 +119,12 @@ function App() {
     e.preventDefault();
     try {
       if (editId !== undefined && editId !== "") {
+  //update firebase employee
         await EmployeeDataService.updateEmployee(editId, updatedEmployee);
         setEditId("");
       }
     } catch (err) {
-      console.log("error in updating employee")
+      console.log("error in updating employee");
     }
     setEmployeeInfo("");
     setEditId("");

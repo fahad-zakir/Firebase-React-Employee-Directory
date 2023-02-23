@@ -15,7 +15,7 @@ function UpdateEmployee({ data, localList, setLocalList, handleEdit }) {
         <input
           type="text"
           onChange={handleNameAttribute}
-          value={data.fullName}
+          value={data.fullName || ""}
           name="fullName"
           className="form-control"
           placeholder="Full Name"
@@ -25,7 +25,7 @@ function UpdateEmployee({ data, localList, setLocalList, handleEdit }) {
         <input
           type="text"
           onChange={handleNameAttribute}
-          value={data.jobTitle}
+          value={data.jobTitle || ""}
           name="jobTitle"
           className="form-control"
           placeholder="Job Title"
@@ -35,7 +35,7 @@ function UpdateEmployee({ data, localList, setLocalList, handleEdit }) {
         <input
           type="email"
           onChange={handleNameAttribute}
-          value={data.emailAddress}
+          value={data.emailAddress || ""}
           name="emailAddress"
           className="form-control"
           placeholder="Email Address"
@@ -45,7 +45,7 @@ function UpdateEmployee({ data, localList, setLocalList, handleEdit }) {
         <input
           type="text"
           onChange={handleNameAttribute}
-          value={data.phoneNumber}
+          value={data.phoneNumber || ""}
           name="phoneNumber"
           className="form-control"
           placeholder="Phone Number"
@@ -54,7 +54,7 @@ function UpdateEmployee({ data, localList, setLocalList, handleEdit }) {
       <td className="td-custom">
         <button
           type="submit"
-          onClick={handleEdit(data.id)}
+          onClick={() => handleEdit(data.id)}
           className="btn-success btn-td-save"
         >
           save
