@@ -5,8 +5,9 @@ function AddEmployee({
   handleChange,
   employeeInfo,
   handleSubmit,
-  handleButtonClick
-}) {
+  handleButtonClick,
+  })
+  {
   return (
     <form
       onSubmit={handleSubmit}
@@ -24,6 +25,7 @@ function AddEmployee({
           name="fullName"
           className="form-control"
           placeholder="Full Name"
+          
         />
       </div>
       <div className="col-sm-12">
@@ -35,6 +37,7 @@ function AddEmployee({
           name="jobTitle"
           className="form-control"
           placeholder="Job Title"
+          
         />
       </div>
       <div className="col-sm-12">
@@ -46,6 +49,7 @@ function AddEmployee({
           name="emailAddress"
           className="form-control"
           placeholder="Email Address"
+          
         />
       </div>
       <div className="col-sm-12">
@@ -57,6 +61,7 @@ function AddEmployee({
           name="phoneNumber"
           className="form-control"
           placeholder="Phone Number"
+          
         />
       </div>
       <div className="col-sm-12 d-flex justify-content-center form-buttons">

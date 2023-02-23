@@ -91,10 +91,11 @@ function App() {
     }
     try {
       const docRef = await EmployeeDataService.addEmployees(employeeInfo);
-      setMessage({ error: false, msg: "New employee added" });
       employeeInfo["id"] = docRef.id;
       const newEmployee = (data) => [...data, employeeInfo];
       setLocalList(newEmployee);
+      setToggleComponent(!toggleComponent);
+      console.log(employeeInfo);
     } catch (err) {
       setMessage({ error: true, msg: "Error in adding employee" });
     }
@@ -104,6 +105,7 @@ function App() {
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
     setToggleSearch(!toggleSearch);
+    setErrorMsg("")
   };
 
   //////////////////////////////////////////////
@@ -117,10 +119,9 @@ function App() {
       if (editId !== undefined && editId !== "") {
         await EmployeeDataService.updateEmployee(editId, updatedEmployee);
         setEditId("");
-        setMessage({ error: false, msg: "Employee updated succesfully" });
       }
     } catch (err) {
-      setMessage({ error: true, msg: "Error in updating employee" });
+      console.log("error in updating employee")
     }
     setEmployeeInfo("");
     setEditId("");
@@ -176,6 +177,7 @@ function App() {
         {localList.length > 0 ? (
           <div className="col-sm-12 d-flex justify-content-center">
             <EmployeeList
+              toggleComponent={toggleComponent}
               localList={localList}
               setLocalList={setLocalList}
               editId={editId}

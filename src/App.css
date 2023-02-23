@@ -40,7 +40,7 @@ html, body, #background {
      margin-right: 7px;
 }
  .employeeForm {
-     margin-top: 6%;
+     margin-top: 4%;
 }
  .btn-td-save {
      width: 55px;
@@ -65,7 +65,7 @@ html, body, #background {
      padding: 12px !important;
 }
  .form-container {
-     margin:auto;
+     margin-bottom: 60px;
      display: flex;
      width: 450px;
      color:#f8f9fa;
@@ -111,6 +111,8 @@ html, body, #background {
      .form-container {
           width: 100%;
           margin-left: 10px !important;
+          margin-top: 20px !important;
+          margin-bottom: 40px !important;
     }
 }
  ::placeholder {

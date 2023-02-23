@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Table from "react-bootstrap/Table";
 import UpdateEmployee from "./UpdateEmployee";
-import { Button } from "react-bootstrap";
-import EmployeeDataService from "../firebase_crud_actions/crud"
 
 function EmployeeList({
   localList,
@@ -10,10 +8,10 @@ function EmployeeList({
   handleEdit,
   editId,
   employeeInfo,
-  handleUpdate
+  handleUpdate,
+  toggleComponent,
 }) {
-
-  return (
+  return toggleComponent ? (
     <form
       className="col-sm-12 d-flex flex-column align-items-center"
       onSubmit={handleUpdate}
@@ -64,7 +62,7 @@ function EmployeeList({
         </tbody>
       </Table>
     </form>
-  );
+  ) : null;
 }
 
 export default EmployeeList;
