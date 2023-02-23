@@ -90,16 +90,36 @@ function App() {
       setMessage({ error: true, msg: "All fields are required!" });
       return;
     }
-    try {
-      //add newmployee to firefox db 
-      const docRef = await EmployeeDataService.addEmployees(employeeInfo);
-      employeeInfo["id"] = docRef.id;
-      console.log(employeeInfo)
-      const newEmployee = (data) => [...data, employeeInfo];
-      setLocalList(newEmployee);
-      setToggleComponent(!toggleComponent);
-    } catch (err) {
-      setMessage({ error: true, msg: "Error in adding employee" });
+    if (editId !== undefined && editId !== "") {
+      try {
+        //add newmployee to firefox db
+        employeeInfo["id"] = editId;
+        await EmployeeDataService.updateEmployee(editId, employeeInfo);
+        const newEmployee = (data) => [...data, employeeInfo];
+        setLocalList(newEmployee);
+        setToggleComponent(!toggleComponent);
+        localList.map((obj, index) => {
+          if (obj.id === employeeInfo.id) {
+            localList.splice(index, 1, employeeInfo);
+          }
+        });
+        setLocalList(localList);
+      } catch (err) {
+        setMessage({ error: true, msg: "Error in adding employee" });
+      }
+      setEditId("");
+    } else {
+      try {
+        //add newmployee to firefox db
+        const docRef = await EmployeeDataService.addEmployees(employeeInfo);
+        employeeInfo["id"] = docRef.id;
+        await EmployeeDataService.updateEmployee(docRef.id, employeeInfo);
+        const newEmployee = (data) => [...data, employeeInfo];
+        setLocalList(newEmployee);
+        setToggleComponent(!toggleComponent);
+      } catch (err) {
+        setMessage({ error: true, msg: "Error in adding employee" });
+      }
     }
     setEmployeeInfo(emptyEmployeeObj);
   };
@@ -114,21 +134,22 @@ function App() {
   //Update functionality and update handlers
   //////////////////////////////////////////////
   //these handlers are being used to compare with current row id so you can get the row clicked on
-  const handleUpdate = async (e) => {
-    console.log(editId)
-    const updatedEmployee = localList.find((obj) => obj.id === editId);
-    e.preventDefault();
-    try {
-      if (editId !== undefined && editId !== "") {
-  //update firebase employee
-        await EmployeeDataService.updateEmployee(editId, updatedEmployee);
-        setEditId("");
-      }
-    } catch (err) {
-      console.log("error in updating employee");
+
+  useEffect(() => {
+    if (editId !== undefined && editId !== "") {
+      handleUpdate();
     }
-    setEmployeeInfo("");
-    setEditId("");
+  }, [editId]);
+
+  const handleUpdate = async () => {
+    try {
+      const docSnap = await EmployeeDataService.getEmployee(editId);
+      setEmployeeInfo(docSnap.data());
+      setToggleComponent(!toggleComponent);
+    } catch (err) {
+      console.log("update didn work");
+      setEmployeeInfo("");
+    }
   };
   //id passed when edit button clicked to set current row id that you want to edit
   const handleEdit = (id) => {
@@ -187,7 +208,6 @@ function App() {
               editId={editId}
               handleEdit={handleEdit}
               employeeInfo={employeeInfo}
-              handleUpdate={handleUpdate}
             />
           </div>
         ) : null}

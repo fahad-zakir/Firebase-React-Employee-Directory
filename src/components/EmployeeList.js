@@ -1,13 +1,9 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import UpdateEmployee from "./UpdateEmployee";
 
 function EmployeeList({
   localList,
-  setLocalList,
   handleEdit,
-  editId,
-  employeeInfo,
   handleUpdate,
   toggleComponent,
 }) {
@@ -32,16 +28,7 @@ function EmployeeList({
         </thead>
         <tbody>
           {localList.map((data, index) => {
-            return editId === data.id ? (
-              <UpdateEmployee
-                key={data.id}
-                employeeInfo={employeeInfo}
-                data={data}
-                localList={localList}
-                setLocalList={setLocalList}
-                handleEdit={handleEdit}
-              />
-            ) : (
+            return (
               <tr key={data.id}>
                 <td>{data.fullName}</td>
                 <td>{data.jobTitle}</td>
@@ -57,8 +44,8 @@ function EmployeeList({
                   </button>
                 </td>
               </tr>
-            );
-          })}
+            
+          )})}
         </tbody>
       </Table>
     </form>
