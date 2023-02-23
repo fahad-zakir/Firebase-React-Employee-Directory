@@ -35,7 +35,7 @@ function App() {
 
   const searchEmployee = async (e) => {
     e.preventDefault();
-    const filterBy = e.target.elements.search.value.toLowerCase();
+    const filterBy = e.target.elements.search.value.toLowerCase().trim();
     //filtering for what was searched in the input for search employee to see if employee exists in db
     const findEmployee = employeeListDb.find(
       (obj) =>
