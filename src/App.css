@@ -51,10 +51,11 @@ html, body, #background {
  @media only screen and (max-width : 500px) {
      .btn-td-save {
          font-weight: 400;
+         padding-right: 50px;
     }
      .btn-td {
          margin-top: 20px;
-         padding-right: 15px;
+         padding-right: 50px;
     }
 }
  .btn-td {
