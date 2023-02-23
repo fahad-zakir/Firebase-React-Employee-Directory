@@ -1,13 +1,13 @@
 import React from "react";
 
-function UpdateEmployee({ data, employeeList, setEmployeeList, handleEdit }) {
+function UpdateEmployee({ data, localList, setLocalList, handleEdit }) {
   const handleNameAttribute = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    const updatedData = employeeList.map((d) =>
+    const updatedData = localList.map((d) =>
       d.id === data.id ? { ...d, [name]: value } : d
     );
-    setEmployeeList(updatedData);
+    setLocalList(updatedData);
   };
   return (
     <tr>

@@ -64,13 +64,6 @@ html, body, #background {
      width: 20px;
      padding: 12px !important;
 }
- .input-row {
-     width:100%;
-     height:fit-content;
-     display: grid;
-     grid-template-columns: 10% 90%;
-     grid-template-rows: 50px;
-}
  .form-container {
      margin:auto;
      display: flex;
@@ -116,7 +109,7 @@ html, body, #background {
          font-size: 1.4em;
     }
      .form-container {
-         width: 90%;
+         width: 100%;
     }
 }
  ::placeholder {

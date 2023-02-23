@@ -12,8 +12,8 @@ function App() {
   const [toggleComponent, setToggleComponent] = useState(true);
   const [toggleSearch, setToggleSearch] = useState(true);
   const [employeeList, setEmployeeList] = useState([]);
+  const [localList, setLocalList] = useState([]);
   const [message, setMessage] = useState({ error: false, msg: "" });
-
   const [employeeInfo, setEmployeeInfo] = useState({
     fullName: "",
     jobTitle: "",
@@ -31,27 +31,23 @@ function App() {
   const getEmployees = async () => {
     const data = await EmployeeDataService.getAllEmployees();
     setEmployeeList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    const addId = employeeList.find((obj) => 
-    obj.fullName === employeeInfo.fullName
-    );
-    setEmployeeInfo(addId);
-    //console.log(employeeInfo)
-    //code phase to only show name that is added one by one instead of list
   };
 
-  const searchEmployee = (e) => {
+  const searchEmployee = async(e) => {
     e.preventDefault();
     const filterBy = e.target.elements.search.value.toLowerCase();
-    //filtering data json for what was typed in the input
-    const filterObject = employeeList.find(
+    //filtering dfor what was searched in the input for search employee to see if employee exists in db
+    const findEmployee = employeeList.find(
       (obj) =>
         obj.fullName.toLowerCase() === filterBy ||
         obj.jobTitle.toLowerCase() === filterBy ||
         obj.emailAddress.toLowerCase() === filterBy
     );
-    if (filterObject) {
-      const newEmployee = [...employeeList, filterObject];
-      setEmployeeList(newEmployee);
+    if (findEmployee) {
+      //get employee detail by employee id from firebase
+      const data = await EmployeeDataService.getEmployee(findEmployee.id);
+      const employee = (e) => [...e, data.data()];
+      setLocalList(employee);
       e.target.elements.search.value = "";
       setErrorMsg("");
     } else {
@@ -63,7 +59,7 @@ function App() {
     if (searchInput) setErrorMsg("");
   };
 
-  //handleChange to get target value and update state in adding inputs for employee form
+  //employee form input field changes
   const handleChange = (e) => {
     const newInfo = (value) => ({
       ...value,
@@ -73,10 +69,18 @@ function App() {
     setMessage("");
   };
 
-  //Add new employee or updated employee
+  //////////////////////////////////////////////
+  //Add employee
+  //////////////////////////////////////////////
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
+      const emptyInput = {
+        fullName: "",
+        jobTitle: "",
+        emailAddress: "",
+        phoneNumber: "",
+      };
     if (
       Object.values(employeeInfo).some(
         (value) => value === undefined || value === ""
@@ -84,39 +88,30 @@ function App() {
     ) {
       setMessage({ error: true, msg: "All fields are required!" });
       return;
-    };
-    const newEmployee = (data) => [...data, employeeInfo];
-
-    const emptyInput = {
-      fullName: "",
-      jobTitle: "",
-      emailAddress: "",
-      phoneNumber: "",
-    };
+    }
     try {
-      await EmployeeDataService.addEmployees(employeeInfo);
+      const docRef = await EmployeeDataService.addEmployees(employeeInfo);
       setMessage({ error: false, msg: "New employee added" });
-      getEmployees();
+      employeeInfo["id"] = docRef.id;
+      const newEmployee = (data) => [...data, employeeInfo];
+      setLocalList(newEmployee);
     } catch (err) {
       setMessage({ error: true, msg: "Error in adding employee" });
     }
-    // setEmployeeInfo(emptyInput);
+    setEmployeeInfo(emptyInput);
   };
   //toggle handlers
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
     setToggleSearch(!toggleSearch);
-
   };
 
   //////////////////////////////////////////////
-  //Update handlers 
+  //Update handlers
   //////////////////////////////////////////////
   //these handlers are being used to compare with current row id so you can get the row clicked on
   const handleUpdate = async (e) => {
-    const updatedEmployee = employeeList.find((obj) => obj.id === editId);
-    setEmployeeInfo(updatedEmployee);
-
+    const updatedEmployee = localList.find((obj) => obj.id === editId);
     e.preventDefault();
     try {
       if (editId !== undefined && editId !== "") {
@@ -159,29 +154,30 @@ function App() {
               >
                 {message?.msg}
                 <button
-                  className={message?.error ? "alert-msg-btn" : "alert-msg-success"}
+                  className={
+                    message?.error ? "alert-msg-btn" : "alert-msg-success"
+                  }
                   onClick={() => setMessage("")}
                 >
                   x
                 </button>
               </Alert>
             )}
-              <div className="col-sm-12 d-flex justify-content-center">
-                <AddEmployee
-                  handleChange={handleChange}
-                  employeeInfo={employeeInfo}
-                  handleSubmit={handleSubmit}
-                  handleButtonClick={handleButtonClick}
-                />
-              </div>
-
+            <div className="col-sm-12 d-flex justify-content-center">
+              <AddEmployee
+                handleChange={handleChange}
+                employeeInfo={employeeInfo}
+                handleSubmit={handleSubmit}
+                handleButtonClick={handleButtonClick}
+              />
+            </div>
           </div>
         )}
-        {employeeList.length > 0 ? (
+        {localList.length > 0 ? (
           <div className="col-sm-12 d-flex justify-content-center">
             <EmployeeList
-              employeeList={employeeList}
-              setEmployeeList={setEmployeeList}
+              localList={localList}
+              setLocalList={setLocalList}
               editId={editId}
               handleEdit={handleEdit}
               employeeInfo={employeeInfo}

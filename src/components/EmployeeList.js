@@ -5,8 +5,8 @@ import { Button } from "react-bootstrap";
 import EmployeeDataService from "../firebase_crud_actions/crud"
 
 function EmployeeList({
-  employeeList,
-  setEmployeeList,
+  localList,
+  setLocalList,
   handleEdit,
   editId,
   employeeInfo,
@@ -33,14 +33,14 @@ function EmployeeList({
           </tr>
         </thead>
         <tbody>
-          {employeeList.map((data, index) => {
+          {localList.map((data, index) => {
             return editId === data.id ? (
               <UpdateEmployee
                 key={data.id}
                 employeeInfo={employeeInfo}
                 data={data}
-                employeeList={employeeList}
-                setEmployeeList={setEmployeeList}
+                localList={localList}
+                setLocalList={setLocalList}
                 handleEdit={handleEdit}
               />
             ) : (
