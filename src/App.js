@@ -145,7 +145,6 @@ function App() {
     try {
       const docSnap = await EmployeeDataService.getEmployee(editId);
       setEmployeeInfo(docSnap.data());
-      setToggleComponent(!toggleComponent);
     } catch (err) {
       console.log("update didn work");
       setEmployeeInfo("");
@@ -154,6 +153,7 @@ function App() {
   //id passed when edit button clicked to set current row id that you want to edit
   const handleEdit = (id) => {
     setEditId(id);
+    setToggleComponent(!toggleComponent);
   };
 
   return (
