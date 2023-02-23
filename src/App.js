@@ -97,7 +97,6 @@ function App() {
       const newEmployee = (data) => [...data, employeeInfo];
       setLocalList(newEmployee);
       setToggleComponent(!toggleComponent);
-      console.log(employeeInfo);
     } catch (err) {
       setMessage({ error: true, msg: "Error in adding employee" });
     }
