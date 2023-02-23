@@ -109,6 +109,9 @@ function App() {
       }
       setEditId("");
     } else {
+      const employeeExists = employeeListDb.some(employee => employee.fullName.toLowerCase() === employeeInfo.fullName.toLowerCase()
+      );
+        if (!employeeExists) {
       try {
         //add newmployee to firefox db
         const docRef = await EmployeeDataService.addEmployees(employeeInfo);
@@ -120,6 +123,9 @@ function App() {
       } catch (err) {
         setMessage({ error: true, msg: "Error in adding employee" });
       }
+    } else {
+      setMessage({error: true, msg: "Employee name already exists in the directory"})
+    }
     }
     setEmployeeInfo(emptyEmployeeObj);
   };
@@ -127,7 +133,7 @@ function App() {
   const handleButtonClick = () => {
     setToggleComponent(!toggleComponent);
     setToggleSearch(!toggleSearch);
-    setErrorMsg("");
+    setMessage("");
   };
 
   //////////////////////////////////////////////
@@ -146,7 +152,7 @@ function App() {
       const docSnap = await EmployeeDataService.getEmployee(editId);
       setEmployeeInfo(docSnap.data());
     } catch (err) {
-      console.log("update didn work");
+      console.log(`update didn't work`);
       setEmployeeInfo("");
     }
   };
