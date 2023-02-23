@@ -46,6 +46,7 @@ html, body, #background {
      width: 55px;
      border-radius: 4px;
      margin-top: 16%;
+     text-align: center;
 }
  @media only screen and (max-width : 500px) {
      .btn-td-save {
@@ -59,6 +60,7 @@ html, body, #background {
  .btn-td {
      width: 50px;
      border-radius: 4px;
+     text-align: center;
 }
  .td-custom {
      width: 20px;
