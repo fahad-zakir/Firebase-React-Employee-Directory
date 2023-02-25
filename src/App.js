@@ -47,7 +47,11 @@ function App() {
       //get employee detail by employee id from firebase
       const data = await EmployeeDataService.getEmployee(findEmployee.id);
       const employee = (e) => [...e, data.data()];
-      setLocalList(employee);
+      const nameExistsInList = localList.some(
+        (el) => el.fullName.toLowerCase() === data.data().fullName.toLowerCase()
+      );
+
+      if (!nameExistsInList) setLocalList(employee);
       e.target.elements.search.value = "";
       setErrorMsg("");
     } else {

@@ -18,7 +18,7 @@ html, body, #background {
      margin: 0;
 }
 .css-i4bv87-MuiSvgIcon-root {
-     font-size: 1.4rem !important;
+     font-size: 1.5rem !important;
 }
  .nav--logo_text {
      display: flex;
@@ -88,9 +88,8 @@ td:not(:last-child) {
      border-radius: 4px;
      text-align: center;
 }
- .td-custom {
-     width: 20px;
-     padding: 12px !important;
+ .icon-custom {
+     padding: 5px !important;
 }
  .form-container {
      margin-bottom: 60px;

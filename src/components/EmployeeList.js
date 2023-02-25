@@ -19,9 +19,9 @@ function EmployeeList({
     >
       <Sheet
         style={{
-          width: isSmallScreen ? "80%" : "100%",
+          width: isSmallScreen ? "80%" : "105%",
           marginTop: "5%",
-          marginLeft: isSmallScreen ? "2px" : "10px",
+          marginLeft: isSmallScreen ? "2px" : "1px",
         }}
         variant="solid"
         color="primary"
@@ -44,11 +44,18 @@ function EmployeeList({
         <Table size={isSmallScreen ? "lg" : "sm"}>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Title</th>
-              <th>Email Address</th>
-              <th>Phone Number</th>
-              <th></th>
+              <th style={isSmallScreen ? { width: "25%" } : { width: "22%" }}>
+                Name
+              </th>
+              <th style={isSmallScreen ? { width: "23%" } : { width: "19%" }}>
+                Title
+              </th>
+              <th style={{ width: "30%" }}>Email Address</th>
+              <th style={isSmallScreen ? { width: "20%" } : { width: "17%" }}>
+                Phone Number
+              </th>
+              <th
+                style={isSmallScreen ? { width: "5%" } : { width: "7%" }}></th>
             </tr>
           </thead>
           <tbody>
@@ -58,10 +65,11 @@ function EmployeeList({
                   <td>{data.fullName}</td>
                   <td>{data.jobTitle}</td>
                   <td>{data.emailAddress}</td>
-                  <td>{data.phoneNumber}</td>
+                  <td>{data.phoneNumber} </td>
                   <td className="td-custom">
                     <ModeEditOutlineTwoToneIcon
-                      onClick={() => handleEdit(data.id)} style={{cursor: 'pointer'}}
+                      onClick={() => handleEdit(data.id)}
+                      style={{ cursor: "pointer" }}
                     />
                   </td>
                 </tr>
