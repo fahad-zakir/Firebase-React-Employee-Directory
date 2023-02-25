@@ -18,7 +18,7 @@ html, body, #background {
      margin: 0;
 }
 .css-i4bv87-MuiSvgIcon-root {
-     font-size: 1.3rem !important;
+     font-size: 1.4rem !important;
 }
  .nav--logo_text {
      display: flex;
@@ -47,6 +47,9 @@ td:not(:last-child) {
    .nav--logo_text {
      font-size: 25px !important;
      font-weight: 800 !important;
+}
+.css-i4bv87-MuiSvgIcon-root {
+     font-size: 1.2rem !important;
 }
  ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
