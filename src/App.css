@@ -95,7 +95,6 @@ td:not(:last-child) {
      padding: 5px !important;
 }
  .form-container {
-     margin-bottom: 60px;
      display: flex;
      width: 450px;
      box-shadow: 1px 2px 20px -6px rgba(0,0,0,0.67);
