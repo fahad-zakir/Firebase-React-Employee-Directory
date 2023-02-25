@@ -74,18 +74,23 @@ function App() {
     setMessage("");
   };
 
-  //////////////////////////////////////////////
-  //Add employee
-  //////////////////////////////////////////////
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage("");
+  const emptyEmployeeInfo = () => {
     const emptyEmployeeObj = {
       fullName: "",
       jobTitle: "",
       emailAddress: "",
       phoneNumber: "",
     };
+    setEmployeeInfo(emptyEmployeeObj);
+  };
+
+  //////////////////////////////////////////////
+  //Add employee
+  //////////////////////////////////////////////
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+
     if (
       Object.values(employeeInfo).some(
         (value) => value === undefined || value === ""
@@ -132,10 +137,11 @@ function App() {
       setMessage({error: true, msg: "Employee name already exists in the directory"})
     }
     }
-    setEmployeeInfo(emptyEmployeeObj);
+    emptyEmployeeInfo();
   };
   //toggle handlers
   const handleButtonClick = () => {
+    emptyEmployeeInfo();
     setEditId("");
     setToggleComponent(!toggleComponent);
     setToggleSearch(!toggleSearch);
@@ -159,7 +165,7 @@ function App() {
       setEmployeeInfo(docSnap.data());
     } catch (err) {
       console.log(`update didn't work`);
-      setEmployeeInfo("");
+      emptyEmployeeInfo();    
     }
   };
   //id passed when edit button clicked to set current row id that you want to edit
