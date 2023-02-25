@@ -17,6 +17,9 @@ html, body, #background {
  .nav--logo_text, .nav--title {
      margin: 0;
 }
+.css-i4bv87-MuiSvgIcon-root {
+     font-size: 1.3rem !important;
+}
  .nav--logo_text {
      display: flex;
      padding-top: 10px;
