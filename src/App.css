@@ -81,6 +81,9 @@ td:not(:last-child) {
      .btn-td {
          margin-top: 20px;
     }
+     .nav--icon {
+     height: 18px;
+}
 }
 
  .btn-td {
