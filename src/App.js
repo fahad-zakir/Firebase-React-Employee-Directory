@@ -136,6 +136,7 @@ function App() {
   };
   //toggle handlers
   const handleButtonClick = () => {
+    setEditId("");
     setToggleComponent(!toggleComponent);
     setToggleSearch(!toggleSearch);
     setMessage("");
