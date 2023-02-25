@@ -6,6 +6,7 @@ function AddEmployee({
   employeeInfo,
   handleSubmit,
   handleButtonClick,
+  editId
   })
   {
   return (
@@ -63,7 +64,7 @@ function AddEmployee({
       <div className="col-sm-12 d-flex justify-content-center form-buttons">
         <input
           type="submit"
-          value="Submit"
+          value={editId ? "Update" : "Submit"}
           className="btn btn-primary form-buttons"
         />
         <Button

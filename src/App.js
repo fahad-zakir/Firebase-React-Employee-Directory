@@ -108,6 +108,7 @@ function App() {
           }
         });
         setLocalList(localList);
+        getEmployees();
       } catch (err) {
         setMessage({ error: true, msg: "Error in adding employee" });
       }
@@ -201,6 +202,7 @@ function App() {
             )}
             <div className="col-sm-12 d-flex justify-content-center">
               <AddEmployee
+                editId={editId}
                 handleChange={handleChange}
                 employeeInfo={employeeInfo}
                 handleSubmit={handleSubmit}
