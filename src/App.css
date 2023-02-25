@@ -1,14 +1,12 @@
 html, body, #background {
      width: 100vw;
      min-height: 100vh;
-     /* background-color: #282D35; */
 }
  .main {
      margin: 0;
      padding-top: 20px;
      font-family: Inter, sans-serif;
      height: 100vh;
-     /* background-color: #282D35; */
      width: 100%;
 }
  .nav-col {

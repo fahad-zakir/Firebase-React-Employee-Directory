@@ -2,6 +2,7 @@ import React from "react";
 import Table from "@mui/joy/Table";
 import Sheet from "@mui/joy/Sheet";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import ModeEditOutlineTwoToneIcon from "@mui/icons-material/ModeEditOutlineTwoTone";
 
 function EmployeeList({
   localList,
@@ -59,13 +60,9 @@ function EmployeeList({
                   <td>{data.emailAddress}</td>
                   <td>{data.phoneNumber}</td>
                   <td className="td-custom">
-                    <button
-                      type="button"
-                      className="btn-danger btn-td"
-                      onClick={() => handleEdit(data.id)}
-                    >
-                      edit
-                    </button>
+                    <ModeEditOutlineTwoToneIcon
+                      onClick={() => handleEdit(data.id)} style={{cursor: 'pointer'}}
+                    />
                   </td>
                 </tr>
               );
