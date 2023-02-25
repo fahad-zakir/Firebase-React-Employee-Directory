@@ -3,7 +3,12 @@ import Table from "@mui/joy/Table";
 import Sheet from "@mui/joy/Sheet";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-function EmployeeList({ localList, handleEdit, handleUpdate, toggleComponent,}) {
+function EmployeeList({
+  localList,
+  handleEdit,
+  handleUpdate,
+  toggleComponent,
+}) {
   const isSmallScreen = useMediaQuery("(min-width:600px)");
 
   return toggleComponent ? (
@@ -12,13 +17,11 @@ function EmployeeList({ localList, handleEdit, handleUpdate, toggleComponent,}) 
       onSubmit={handleUpdate}
     >
       <Sheet
-        style={{ width: 
-            isSmallScreen ? (
-              "80%"
-            ) : (
-              "100%"
-            )
-          , marginTop: "5%", marginLeft: "2px" }}
+        style={{
+          width: isSmallScreen ? "80%" : "100%",
+          marginTop: "5%",
+          marginLeft: isSmallScreen ? "2px" : "10px",
+        }}
         variant="solid"
         color="primary"
         invertedColors
@@ -37,15 +40,7 @@ function EmployeeList({ localList, handleEdit, handleUpdate, toggleComponent,}) 
           },
         }}
       >
-        <Table
-          size={
-            isSmallScreen ? (
-              "lg"
-            ) : (
-              "sm"
-            )
-          }
-        >
+        <Table size={isSmallScreen ? "lg" : "sm"}>
           <thead>
             <tr>
               <th>Name</th>
