@@ -53,8 +53,7 @@ td:not(:last-child) {
      opacity: 1;
     /* Firefox */
      font-weight: lighter;
-     font-size: 10px;
-     text-overflow: ellipsis;
+     font-size: 16px;
 }
 }
  .nav--icon {
@@ -133,9 +132,8 @@ td:not(:last-child) {
          font-size: 1.4em;
     }
      .form-container {
-
           width: 100% !important;
-          margin-left: 15px !important;
+          margin-left: 20px !important;
           margin-top: 20px !important;
           margin-bottom: 40px !important;
     }
@@ -202,7 +200,46 @@ td:not(:last-child) {
          margin-left: 35px;
     }
 }
-
+ @media only screen and (max-width : 500px) {
+     ::-webkit-input-placeholder {
+        /* WebKit browsers */
+         color: transparent;
+    }
+     :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+         color: transparent;
+    }
+     ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+         color: transparent;
+    }
+     :-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+         color: transparent;
+    }
+     input::placeholder {
+         color: transparent;
+    }
+     textarea::-webkit-input-placeholder {
+        /* WebKit browsers */
+         color: transparent;
+    }
+     textarea:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+         color: transparent;
+    }
+     textarea::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+         color: transparent;
+    }
+     textarea:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+         color: transparent;
+    }
+     textarea::placeholder {
+         color: transparent;
+    }
+}
  @media only screen and (max-width : 550px) {
      .search--input {
          margin-top: 70px;
