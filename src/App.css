@@ -23,6 +23,7 @@ html, body, #background {
      font-size: 1.5rem !important;
 }
  .nav--logo_text {
+     padding-left: 10px;
      display: flex;
      padding-top: 10px;
      align-items: center;
@@ -47,6 +48,7 @@ td:not(:last-child) {
    .nav--logo_text {
      font-size: 25px !important;
      font-weight: 800 !important;
+     padding-left: 20px;
 }
 .css-i4bv87-MuiSvgIcon-root {
      font-size: 1.2rem !important;

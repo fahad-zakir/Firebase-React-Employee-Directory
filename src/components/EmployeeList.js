@@ -21,7 +21,7 @@ function EmployeeList({
           width: isSmallScreen ? "80%" : "105%",
           marginTop: "5%",
           marginBottom: "3%",
-          marginLeft: isSmallScreen ? "2px" : "12px",
+          marginLeft: isSmallScreen ? "2px" : "2px",
         }}
         variant="solid"
         color="primary"
