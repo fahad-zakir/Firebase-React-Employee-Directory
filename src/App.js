@@ -37,24 +37,49 @@ function App() {
     e.preventDefault();
     const filterBy = e.target.elements.search.value.toLowerCase().trim();
     //filtering for what was searched in the input for search employee to see if employee exists in db
-    const findEmployee = employeeListDb.find(
-      (obj) =>
-        obj.fullName.toLowerCase() === filterBy ||
-        obj.jobTitle.toLowerCase() === filterBy ||
-        obj.emailAddress.toLowerCase() === filterBy
+    //complexity to find multiple matches
+    function filterObjectsByThreeValues(arrayOfObjects, keys, values) {
+      return arrayOfObjects.filter((object) => {
+        return keys.some((key, index) => {
+          return object[key].toLowerCase() === values[index].toLowerCase();
+        });
+      });
+    }
+    const keys = ["fullName", "jobTitle", "emailAddress"];
+    const values = [filterBy, filterBy, filterBy];
+    const findEmployees = filterObjectsByThreeValues(
+      employeeListDb,
+      keys,
+      values
     );
-    if (findEmployee) {
-      //get employee detail by employee id from firebase
-      const data = await EmployeeDataService.getEmployee(findEmployee.id);
-      const employee = (e) => [...e, data.data()];
-      const nameExistsInList = localList.some(
-        (el) => el.fullName.toLowerCase() === data.data().fullName.toLowerCase()
+    //if found get all names of matches
+    if (findEmployees.length > 0) {
+      console.log(findEmployees);
+      const findByids = findEmployees.map((obj) => obj.id);
+      const employeesFound = employeeListDb.filter((obj) =>
+        findByids.includes(obj.id)
       );
-
-      if (!nameExistsInList) setLocalList(employee);
+      function compareAndAddObjects(firstArray, secondArray) {
+        // create a new array to hold the merged objects
+        const mergedArray = [...firstArray];
+        // loop through each object in the second array
+        secondArray.forEach((secondObject) => {
+          // check if the object exists in the first array
+          const objectExists = mergedArray.some(
+            (firstObject) => firstObject.id === secondObject.id
+          );
+          // if the object doesn't exist in the first array, add it
+          if (!objectExists) {
+            mergedArray.push(secondObject);
+          }
+        });
+        setLocalList(mergedArray);
+      }
+      compareAndAddObjects(localList, findEmployees);
       e.target.elements.search.value = "";
       setErrorMsg("");
     } else {
+      console.log("not-working");
       setErrorMsg("Employee not found");
     }
   };
@@ -119,23 +144,29 @@ function App() {
       }
       setEditId("");
     } else {
-      const employeeExists = employeeListDb.some(employee => employee.fullName.toLowerCase() === employeeInfo.fullName.toLowerCase()
+      const employeeExists = employeeListDb.some(
+        (employee) =>
+          employee.fullName.toLowerCase() ===
+          employeeInfo.fullName.toLowerCase()
       );
-        if (!employeeExists) {
-      try {
-        //add newmployee to firefox db
-        const docRef = await EmployeeDataService.addEmployees(employeeInfo);
-        employeeInfo["id"] = docRef.id;
-        await EmployeeDataService.updateEmployee(docRef.id, employeeInfo);
-        const newEmployee = (data) => [...data, employeeInfo];
-        setLocalList(newEmployee);
-        setToggleComponent(!toggleComponent);
-      } catch (err) {
-        setMessage({ error: true, msg: "Error in adding employee" });
+      if (!employeeExists) {
+        try {
+          //add newmployee to firefox db
+          const docRef = await EmployeeDataService.addEmployees(employeeInfo);
+          employeeInfo["id"] = docRef.id;
+          await EmployeeDataService.updateEmployee(docRef.id, employeeInfo);
+          const newEmployee = (data) => [...data, employeeInfo];
+          setLocalList(newEmployee);
+          setToggleComponent(!toggleComponent);
+        } catch (err) {
+          setMessage({ error: true, msg: "Error in adding employee" });
+        }
+      } else {
+        setMessage({
+          error: true,
+          msg: "Employee name already exists in the directory",
+        });
       }
-    } else {
-      setMessage({error: true, msg: "Employee name already exists in the directory"})
-    }
     }
     emptyEmployeeInfo();
   };
@@ -165,7 +196,7 @@ function App() {
       setEmployeeInfo(docSnap.data());
     } catch (err) {
       console.log(`update didn't work`);
-      emptyEmployeeInfo();    
+      emptyEmployeeInfo();
     }
   };
   //id passed when edit button clicked to set current row id that you want to edit
