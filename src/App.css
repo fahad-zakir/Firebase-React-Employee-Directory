@@ -83,7 +83,7 @@ td:not(:last-child) {
     }
      .nav--icon {
      height: 18px;
-}
+     }
 }
 
  .btn-td {
@@ -93,6 +93,13 @@ td:not(:last-child) {
 }
  .icon-custom {
      padding: 5px !important;
+}
+.custom-info {
+     background: linear-gradient(45deg, #ecf1f0, #cccccc);
+     border-radius: 6px;
+     padding: 5px;
+     max-width: 80%;
+     font-size: .8em !important;
 }
  .form-container {
      margin-bottom: 60px;

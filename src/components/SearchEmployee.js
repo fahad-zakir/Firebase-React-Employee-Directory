@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function SearchEmployee({
   handleButtonClick,
@@ -7,8 +9,23 @@ function SearchEmployee({
   errorMsg,
   handleSearchInput,
 }) {
+  const isSmallScreen = useMediaQuery("(min-width:600px)");
   return (
     <form className="search--form" onSubmit={searchEmployee}>
+      <div className="col-sm-4">
+        <Typography
+          mt={5}
+          ml={5}
+          className="custom-info"
+          variant="body2"
+          style={{
+            display: isSmallScreen ? "none" : "block",
+          }}
+        >
+          Search for an employee by either entering a full name, job title or an
+          email address.
+        </Typography>
+      </div>
       <div className="col-sm-12 d-flex justify-content-center">
         <input
           className="search--input"

@@ -1,5 +1,4 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
 import logo from "../images/oj-icon.png";
 
 function Navbar() {

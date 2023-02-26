@@ -11,7 +11,6 @@ function EmployeeList({
   toggleComponent,
 }) {
   const isSmallScreen = useMediaQuery("(min-width:600px)");
-
   return toggleComponent ? (
     <form
       className="col-sm-12 d-flex flex-column align-items-center"
