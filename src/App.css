@@ -30,7 +30,6 @@ html, body, #background {
      color: #ffffff;
      font-size: clamp(1em, 5vw, 2.2em);
      font-weight: 900;
-     padding-left: 20px;
 }
  @media only screen and (max-width : 1050px) {
 td:not(:last-child) {
@@ -51,14 +50,6 @@ td:not(:last-child) {
 }
 .css-i4bv87-MuiSvgIcon-root {
      font-size: 1.2rem !important;
-}
- ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-     color: #000000;
-     opacity: 1;
-    /* Firefox */
-     font-weight: lighter;
-     font-size: 16px;
 }
 }
  .nav--icon {
@@ -103,13 +94,13 @@ td:not(:last-child) {
      font-size: .8em !important;
 }
  .form-container {
+     color:#f8f9fa;
      margin-bottom: 60px;
      display: flex;
      width: 450px;
      box-shadow: 1px 2px 20px -6px rgba(0,0,0,0.67);
-     font-family:sans-serif;
-     background: linear-gradient(45deg, #ecf1f0, #cccccc);
-     padding:40px 20px;
+     background-color: #212529;
+     padding:30px 20px;
      border-radius: 10px;
 }
  #form-signup {
@@ -188,18 +179,28 @@ td:not(:last-child) {
      overflow: hidden;
      font-size: 1.1em !important;
 }
+input.form-control::placeholder {
+    color:#cecfd1;
+    font-size: 17px;
+    font-weight: 600;
+}
  input.form-control {
      margin-bottom: 20px;
      padding:10px;
      border-radius: 10px;
      height: 50px;
+     background-color: #6c757d;
      outline: none;
      border: none;
      font-size:19.2px;
      transition-duration: 0.15s;
-     color:rgb(44, 41, 41)
+     color:#f8f9fa;
 }
  input.form-control:focus{
+     color:#f8f9fa;
+     font-size: 16px;
+     font-weight: 600;
+     background-color: #6c757d;
      border:5px solid #4474d3;
      height: 49px;
      margin-top:2px;
@@ -281,8 +282,9 @@ td:not(:last-child) {
      border-radius: 10px !important;
 }
  label{
-     font-size: 1em;
-     font-weight: 500;
+  font-size: 1.2em;
+    font-weight: 500;
+    margin:10px 0px;
 }
 .alert {
      width: 450px;
