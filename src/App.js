@@ -54,7 +54,6 @@ function App() {
     );
     //if found get all names of matches
     if (findEmployees.length > 0) {
-      console.log(findEmployees);
       const findByids = findEmployees.map((obj) => obj.id);
       const employeesFound = employeeListDb.filter((obj) =>
         findByids.includes(obj.id)
@@ -79,7 +78,6 @@ function App() {
       e.target.elements.search.value = "";
       setErrorMsg("");
     } else {
-      console.log("not-working");
       setErrorMsg("Employee not found");
     }
   };
