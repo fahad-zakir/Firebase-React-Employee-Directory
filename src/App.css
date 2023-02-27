@@ -319,19 +319,16 @@ button.alert-msg-success:hover {
       color:#212521;
       transition: 0.7s;
   }
-
 .add--employee {
      width: 200px;
      border-radius: 10px;
   }
-  
 .employees--list-link {
      position: relative;
      color: #383636;
        background-color: transparent;
 
 }
-
 .employees--list {
      position: absolute;
      top: 100%;
@@ -341,7 +338,7 @@ button.alert-msg-success:hover {
 }
 
 .employees--list-link:hover .employees--list {
-     margin-top: 3px;
+     margin-top: 23px;
      opacity: 1;
      z-index: 1;
 }
