@@ -93,13 +93,11 @@ td:not(:last-child) {
 .custom-info {
      background: linear-gradient(45deg, #ecf1f0, #cccccc);
      border-radius: 6px;
-     padding: 4px 2px 0px 8px;
+     padding: 5px;
      max-width: 80%;
-     font-style: sans-serif !important;
      font-size: .8em !important;
-     font-weight: 500 !important;
 }
- .form.employees-img {
+ .form-container {
      color:#f8f9fa;
      margin-bottom: 60px;
      display: flex;
@@ -142,7 +140,7 @@ td:not(:last-child) {
      #form-signup {
          font-size: 1.4em;
     }
-     .form.employees-img {
+     .form-container {
           width: 100% !important;
           margin-left: 17px !important;
           margin-top: 20px !important;
@@ -301,8 +299,8 @@ input.form-control::placeholder {
      color: red;
      padding: 0;
      margin-right: 5px;
-     border: none;
-     background: none;
+border: none;
+background: none;
 }
 button.alert-msg-btn:hover {
       color:#291d1d;
@@ -318,14 +316,15 @@ button.alert-msg-btn:hover {
      background: none;
 }
 button.alert-msg-success:hover {
-     color:#212521;
-     transition: 0.7s;
+      color:#212521;
+      transition: 0.7s;
   }
 
 .add--employee {
      width: 200px;
      border-radius: 10px;
   }
+  
 .employees--list-link {
      position: relative;
      color: #383636;
@@ -346,4 +345,3 @@ button.alert-msg-success:hover {
      opacity: 1;
      z-index: 1;
 }
-
