@@ -68,6 +68,7 @@ function EmployeeList({
                   <td>{data.phoneNumber} </td>
                   <td className="td-custom">
                     <ModeEditOutlineTwoToneIcon
+                      fontSize={isSmallScreen ? "medium" : "small" }
                       onClick={() => handleEdit(data.id)}
                       style={{ cursor: "pointer" }}
                     />

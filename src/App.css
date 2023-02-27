@@ -19,10 +19,6 @@ html, body, #background {
  .nav--logo_text, .nav--title {
      margin: 0;
 }
-.css-i4bv87-MuiSvgIcon-root {
-     font-size: 1.5rem !important;
-     margin-right: 2px !important;
-}
  .nav--logo_text {
      padding-left: 10px;
      display: flex;
@@ -153,9 +149,6 @@ td:not(:last-child) {
     .alert-danger {
      margin-left: 27px !important;
     }
-    .css-i4bv87-MuiSvgIcon-root {
-     font-size: 1rem !important;
-}
 }
  ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
