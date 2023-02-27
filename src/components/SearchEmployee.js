@@ -17,7 +17,7 @@ function SearchEmployee({
       <div className="col-sm-4">
         <Typography mt={5} ml={5} className="custom-info" variant="body2">
           <p className="employees--list-link">
-            Hover here for employee list to search by either a full name, job
+            Hover here for employee list for searching by either a full name, job
             title or an email address.
             {isSmallScreen ? 
             <img
