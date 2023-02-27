@@ -39,8 +39,8 @@ function App() {
     //filterBy is the searched employee from input field to see if it exsists in the firebase database 
     //function below looks for multiple matches to see if there are more than one based on search
     //it uses filterBy to search for in database
-    function filterObjectsByThreeValues(arrayOfObjects, keys, values) {
-      return arrayOfObjects.filter((object) => {
+    const filterEmployeeDb = (employeeDb, keys, values) => {
+      return employeeDb.filter((object) => {
         return keys.some((key, index) => {
           return object[key].toLowerCase() === values[index].toLowerCase();
         });
@@ -49,7 +49,7 @@ function App() {
     //since we are searching based on either fullName, jobTitle, and emailAddress, it will be used for db search 
     const keys = ["fullName", "jobTitle", "emailAddress"];
     const values = [filterBy, filterBy, filterBy];
-    const findEmployees = filterObjectsByThreeValues(
+    const findEmployees = filterEmployeeDb(
       employeeListDb,
       keys,
       values
@@ -58,23 +58,23 @@ function App() {
     //code below is to check to see if the current local employee directory list you see already has names listed to avoid duplicate names
     //it compares localList array of objects with findEmployees array of objects and only passes what doesn't exists in localList
     if (findEmployees.length > 0) {
-      function compareAndAddObjects(firstArray, secondArray) {
+      const compareLocalListAndFindEmployees = (firstArray, secondArray) => {
         // create a new array to hold the merged objects
         const mergedArray = [...firstArray];
         // loop through each object in the second array
         secondArray.forEach((secondObject) => {
           // check if the object exists in the first array
-          const objectExists = mergedArray.some(
+          const employeeExists = mergedArray.some(
             (firstObject) => firstObject.id === secondObject.id
           );
           // if the object doesn't exist in the first array, add it
-          if (!objectExists) {
+          if (!employeeExists) {
             mergedArray.push(secondObject);
           }
         });
         setLocalList(mergedArray);
       }
-      compareAndAddObjects(localList, findEmployees);
+      compareLocalListAndFindEmployees(localList, findEmployees);
       e.target.elements.search.value = "";
       setErrorMsg("");
     } else {

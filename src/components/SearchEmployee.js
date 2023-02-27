@@ -2,6 +2,8 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import employeesList from "../images/employees-list.png";
+import employeesListSm from "../images/employees-list-small.png";
 
 function SearchEmployee({
   handleButtonClick,
@@ -13,17 +15,24 @@ function SearchEmployee({
   return (
     <form className="search--form" onSubmit={searchEmployee}>
       <div className="col-sm-4">
-        <Typography
-          mt={5}
-          ml={5}
-          className="custom-info"
-          variant="body2"
-          style={{
-            display: isSmallScreen ? "none" : "block",
-          }}
-        >
-          Search for an employee by either entering a full name, job title or an
-          email address.
+        <Typography mt={5} ml={5} className="custom-info" variant="body2">
+          <p className="employees--list-link">
+            Hover here for employee list and search by either a full name, job
+            title or an email address.
+            {isSmallScreen ? 
+            <img
+              src={employeesList}
+              className="employees--list"
+              alt="employees-list"
+            />
+            :
+            <img
+              src={employeesListSm}
+              className="employees--list"
+              alt="employees-list"
+            />
+            }
+          </p>
         </Typography>
       </div>
       <div className="col-sm-12 d-flex justify-content-center">
