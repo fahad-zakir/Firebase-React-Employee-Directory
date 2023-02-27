@@ -56,7 +56,7 @@ function App() {
     );
     //if found get all names and save it in array of objects findEmployees above
     //code below is to check to see if the current local employee directory list you see already has names listed to avoid duplicate names
-    //it cmompares localList array of objects with findEmployees array of objects and only passes what doesn't exists in localList
+    //it compares localList array of objects with findEmployees array of objects and only passes what doesn't exists in localList
     if (findEmployees.length > 0) {
       function compareAndAddObjects(firstArray, secondArray) {
         // create a new array to hold the merged objects
