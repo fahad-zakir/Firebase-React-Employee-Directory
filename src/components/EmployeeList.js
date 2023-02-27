@@ -44,10 +44,10 @@ function EmployeeList({
         <Table size={isSmallScreen ? "lg" : "sm"}>
           <thead>
             <tr>
-              <th style={isSmallScreen ? { width: "25%" } : { width: "22%" }}>
+              <th style={isSmallScreen ? { width: "25%" } : { width: "20%" }}>
                 Name
               </th>
-              <th style={isSmallScreen ? { width: "25%" } : { width: "19%" }}>
+              <th style={isSmallScreen ? { width: "25%" } : { width: "20%" }}>
                 Title
               </th>
               <th style={{ width: "32%" }}>Email Address</th>
