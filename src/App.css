@@ -21,6 +21,7 @@ html, body, #background {
 }
 .css-i4bv87-MuiSvgIcon-root {
      font-size: 1.5rem !important;
+     margin-right: 2px !important;
 }
  .nav--logo_text {
      padding-left: 10px;
@@ -37,22 +38,6 @@ td:not(:last-child) {
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
-   .search--button {
-     font-size: 14px !important;
-     font-weight: 500 !important;
-}
-   .add--button {
-     font-size: 14px !important;
-     font-weight: 500 !important;
-}
-   .nav--logo_text {
-     font-size: 25px !important;
-     font-weight: 800 !important;
-     padding-left: 20px;
-}
-.css-i4bv87-MuiSvgIcon-root {
-     font-size: 1.2rem !important;
-}
 }
  .nav--icon {
      height: 32px;
@@ -68,6 +53,19 @@ td:not(:last-child) {
      text-align: center;
 }
  @media only screen and (max-width : 500px) {
+        .search--button {
+     font-size: 14px !important;
+     font-weight: 500 !important;
+}
+   .add--button {
+     font-size: 14px !important;
+     font-weight: 500 !important;
+}
+   .nav--logo_text {
+     font-size: 25px !important;
+     font-weight: 800 !important;
+     padding-left: 20px;
+}
      .btn-td-save {
          font-weight: 400;
          padding-right: 50px;
@@ -80,6 +78,11 @@ td:not(:last-child) {
      }
      html, body, #background {
      min-height: 90vh;
+}
+}
+ @media only screen and (max-width : 900px) {
+.css-i4bv87-MuiSvgIcon-root {
+     margin-right: 50px !important;
 }
 }
 

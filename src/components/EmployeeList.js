@@ -47,15 +47,15 @@ function EmployeeList({
               <th style={isSmallScreen ? { width: "25%" } : { width: "22%" }}>
                 Name
               </th>
-              <th style={isSmallScreen ? { width: "23%" } : { width: "19%" }}>
+              <th style={isSmallScreen ? { width: "25%" } : { width: "19%" }}>
                 Title
               </th>
-              <th style={{ width: "30%" }}>Email Address</th>
-              <th style={isSmallScreen ? { width: "20%" } : { width: "17%" }}>
+              <th style={{ width: "32%" }}>Email Address</th>
+              <th style={isSmallScreen ? { width: "18%" } : { width: "25%" }}>
                 Phone Number
               </th>
               <th
-                style={isSmallScreen ? { width: "5%" } : { width: "7%" }}></th>
+                style={isSmallScreen ? { width: "8%" } : { width: "10%" }}></th>
             </tr>
           </thead>
           <tbody>
