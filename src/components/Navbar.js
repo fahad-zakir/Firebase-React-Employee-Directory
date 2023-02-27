@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../images/oj-icon.png";
-import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 
 function Navbar() {
   return (

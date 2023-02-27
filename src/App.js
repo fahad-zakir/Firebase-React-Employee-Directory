@@ -36,8 +36,9 @@ function App() {
   const searchEmployee = async (e) => {
     e.preventDefault();
     const filterBy = e.target.elements.search.value.toLowerCase().trim();
-    //filtering for what was searched in the input for search employee to see if employee exists in db
-    //complexity to find multiple matches
+    //filterBy is the searched employee from input field to see if it exsists in the firebase database 
+    //function below looks for multiple matches to see if there are more than one based on search
+    //it uses filterBy to search for in database
     function filterObjectsByThreeValues(arrayOfObjects, keys, values) {
       return arrayOfObjects.filter((object) => {
         return keys.some((key, index) => {
@@ -45,6 +46,7 @@ function App() {
         });
       });
     }
+    //since we are searching based on either fullName, jobTitle, and emailAddress, it will be used for db search 
     const keys = ["fullName", "jobTitle", "emailAddress"];
     const values = [filterBy, filterBy, filterBy];
     const findEmployees = filterObjectsByThreeValues(
@@ -52,7 +54,9 @@ function App() {
       keys,
       values
     );
-    //if found get all names of matches
+    //if found get all names and save it in array of objects findEmployees above
+    //code below is to check to see if the current local employee directory list you see already has names listed to avoid duplicate names
+    //it cmompares localList array of objects with findEmployees array of objects and only passes what doesn't exists in localList
     if (findEmployees.length > 0) {
       const findByids = findEmployees.map((obj) => obj.id);
       const employeesFound = employeeListDb.filter((obj) =>
@@ -81,13 +85,13 @@ function App() {
       setErrorMsg("Employee not found");
     }
   };
-  //for clearing error msg
+  //for clearing error msg when you type back in search input once error message appears
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
     if (searchInput) setErrorMsg("");
   };
 
-  //employee form input field changes
+  //employee form input field changes for updating to latest values
   const handleChange = (e) => {
     const newInfo = (value) => ({
       ...value,
@@ -97,6 +101,7 @@ function App() {
     setMessage("");
   };
 
+  //for emptying employee info object, employeeInfo object is used for getting form values and passing it to localList or database list if form is submitted
   const emptyEmployeeInfo = () => {
     const emptyEmployeeObj = {
       fullName: "",
@@ -108,12 +113,12 @@ function App() {
   };
 
   //////////////////////////////////////////////
-  //Add employee
+  //Add employee, edit employee
   //////////////////////////////////////////////
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-
+    //if any form field was empty, display error
     if (
       Object.values(employeeInfo).some(
         (value) => value === undefined || value === ""
@@ -122,6 +127,7 @@ function App() {
       setMessage({ error: true, msg: "All fields are required!" });
       return;
     }
+    //if edit id then update employee, else add new employee in else condition
     if (editId !== undefined && editId !== "") {
       try {
         //add newmployee to firefox db
@@ -152,6 +158,7 @@ function App() {
           //add newmployee to firefox db
           const docRef = await EmployeeDataService.addEmployees(employeeInfo);
           employeeInfo["id"] = docRef.id;
+          //since id is not added in docRef above, its updated immediately with id from above 
           await EmployeeDataService.updateEmployee(docRef.id, employeeInfo);
           const newEmployee = (data) => [...data, employeeInfo];
           setLocalList(newEmployee);
@@ -190,6 +197,7 @@ function App() {
 
   const handleUpdate = async () => {
     try {
+      //for populating form with employee info when updating 
       const docSnap = await EmployeeDataService.getEmployee(editId);
       setEmployeeInfo(docSnap.data());
     } catch (err) {
