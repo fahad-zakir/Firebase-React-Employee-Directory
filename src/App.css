@@ -153,6 +153,9 @@ td:not(:last-child) {
     .alert-danger {
      margin-left: 27px !important;
     }
+    .css-i4bv87-MuiSvgIcon-root {
+     font-size: 1.2rem !important;
+}
 }
  ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
