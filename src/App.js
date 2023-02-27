@@ -58,10 +58,6 @@ function App() {
     //code below is to check to see if the current local employee directory list you see already has names listed to avoid duplicate names
     //it cmompares localList array of objects with findEmployees array of objects and only passes what doesn't exists in localList
     if (findEmployees.length > 0) {
-      const findByids = findEmployees.map((obj) => obj.id);
-      const employeesFound = employeeListDb.filter((obj) =>
-        findByids.includes(obj.id)
-      );
       function compareAndAddObjects(firstArray, secondArray) {
         // create a new array to hold the merged objects
         const mergedArray = [...firstArray];
