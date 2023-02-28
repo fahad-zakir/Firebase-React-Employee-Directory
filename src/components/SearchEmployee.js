@@ -67,7 +67,7 @@ function SearchEmployee({
                 color: "white",
                 position: "absolute",
                 zIndex: 1,
-                width: isSmallScreen ? "35%" : "75%",
+                width: isSmallScreen ? "35%" : "70%",
                 marginLeft: "2px",
               }}
               variant="plain"
