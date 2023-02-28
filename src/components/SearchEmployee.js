@@ -53,7 +53,7 @@ function SearchEmployee({
       <div className="col-sm-12">
         <Typography
           mt={5}
-          ml={5}
+          ml={isSmallScreen ? 5 : 6}
           className="custom-info"
           variant="body2"
         >
@@ -73,7 +73,7 @@ function SearchEmployee({
                 zIndex: 1,
                 width: isSmallScreen ? "35%" : "80%",
                 marginLeft: isSmallScreen ? "2px" : "0px",
-                marginRight: isSmallScreen ? "0px" : "10px"
+                marginRight: isSmallScreen ? "0px" : "10px",
               }}
               variant="plain"
               color="neutral"
