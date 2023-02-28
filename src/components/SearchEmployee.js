@@ -72,8 +72,8 @@ function SearchEmployee({
                 position: "absolute",
                 zIndex: 1,
                 width: isSmallScreen ? "35%" : "80%",
-                marginLeft: isSmallScreen ? "2px" : "0px",
-                marginRight: isSmallScreen ? "0px" : "10px",
+                marginLeft: "2px",
+                marginRight: isSmallScreen ? "0px" : "20px",
               }}
               variant="plain"
               color="neutral"
