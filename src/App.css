@@ -90,13 +90,6 @@ td:not(:last-child) {
  .icon-custom {
      padding: 5px !important;
 }
-.custom-info {
-     background: linear-gradient(45deg, #ecf1f0, #cccccc);
-     border-radius: 6px;
-     padding: 5px;
-     max-width: 80%;
-     font-size: .8em !important;
-}
  .form-container {
      color:#f8f9fa;
      margin-bottom: 60px;
@@ -124,7 +117,7 @@ td:not(:last-child) {
      background-color: #e2e3e5;
      border: 0;
      border-radius: 10px;
-     margin-top: 70px;
+     margin-top: 30px;
      border-bottom: solid 1px #cef1d7;
      width: 390px;
      color: #000000;
@@ -214,9 +207,9 @@ input.form-control::placeholder {
          width: 100%;
          font-size:16px;
     }
-     .custom-form {
+     .employees-list-hover {
          margin-top: 35px;
-         margin-left: 35px;
+         margin-right: 15px;
     }
 }
  @media only screen and (max-width : 500px) {
@@ -323,22 +316,10 @@ button.alert-msg-success:hover {
      width: 200px;
      border-radius: 10px;
   }
-.employees--list-link {
-     position: relative;
-     color: #383636;
-       background-color: transparent;
-
-}
-.employees--list {
-     position: absolute;
-     top: 100%;
-     left: 0;
-     opacity: 0;
-     transition: opacity 0.2s ease;
-}
-
-.employees--list-link:hover .employees--list {
-     margin-top: 23px;
-     opacity: 1;
-     z-index: 1;
+.employees-list-hover{
+     background-color: white;
+     border-radius: 6px;
+     padding: 5px;
+     max-width: 300px;
+     font-size: .9em !important;
 }
