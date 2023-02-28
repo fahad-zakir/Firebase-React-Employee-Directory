@@ -14,8 +14,8 @@ function SearchEmployee({
   const isSmallScreen = useMediaQuery("(min-width:600px)");
   const [showSheet, setShowSheet] = useState(false);
   function createData(fullName, jobTitle, emailAddress, phoneNumber) {
-  return { fullName, jobTitle, emailAddress, phoneNumber };
-}
+    return { fullName, jobTitle, emailAddress, phoneNumber };
+  }
   const rows = [
     createData(
       "Fahad Zakir",
@@ -31,7 +31,7 @@ function SearchEmployee({
       "404-758-2434"
     ),
     createData("Mike Miller", "Doctor", "drmike@gmail.com", "988-454-2323"),
-    createData("Fred Taylor", "Athlete", "fred@gmail.com",	"313-224-8080"),
+    createData("Fred Taylor", "Athlete", "fred@gmail.com", "313-224-8080"),
     createData("Tom Hanks", "Actor", "	tomhanks@gmail.com", "982-244-8484"),
     createData(
       "David Robinson",
@@ -53,7 +53,7 @@ function SearchEmployee({
       <div className="col-sm-12">
         <Typography
           mt={5}
-          ml={isSmallScreen ? 5 : 3}
+          ml={isSmallScreen ? 5 : 8}
           className="custom-info"
           variant="body2"
         >
