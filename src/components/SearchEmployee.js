@@ -53,7 +53,7 @@ function SearchEmployee({
       <div className="col-sm-12">
         <Typography
           mt={5}
-          ml={isSmallScreen ? 5 : 8}
+          ml={5}
           className="custom-info"
           variant="body2"
         >
