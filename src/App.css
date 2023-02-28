@@ -60,7 +60,7 @@ td:not(:last-child) {
    .nav--logo_text {
      font-size: 25px !important;
      font-weight: 800 !important;
-     padding-left: 20px;
+     padding-left: 15px;
 }
      .btn-td-save {
          font-weight: 400;
