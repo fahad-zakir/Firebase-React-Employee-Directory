@@ -13,40 +13,36 @@ function SearchEmployee({
 }) {
   const isSmallScreen = useMediaQuery("(min-width:600px)");
   const [showSheet, setShowSheet] = useState(false);
-  function createData(fullName, jobTitle, emailAddress, phoneNumber) {
-    return { fullName, jobTitle, emailAddress, phoneNumber };
+  function createData(fullName, jobTitle, emailAddress) {
+    return { fullName, jobTitle, emailAddress };
   }
   const rows = [
     createData(
       "Fahad Zakir",
       "Programmer",
-      "fahadzakir11@gmail.com",
-      "407-446-9070"
+      "fahadzakir11@gmail.com"
     ),
-    createData("John Wick", "Actor", "johnfox@aol.com", "313-224-8080"),
+    createData("John Wick", "Actor", "johnfox@aol.com"),
     createData(
       "Ashley Thompson",
       "Director",
-      "ashley25@gmail.com",
-      "404-758-2434"
+      "ashley25@gmail.com"
     ),
-    createData("Mike Miller", "Doctor", "drmike@gmail.com", "988-454-2323"),
-    createData("Fred Taylor", "Athlete", "fred@gmail.com", "313-224-8080"),
-    createData("Tom Hanks", "Actor", "	tomhanks@gmail.com", "982-244-8484"),
+    createData("Mike Miller", "Doctor", "drmike@gmail.com"),
+    createData("Fred Taylor", "Athlete", "fred@gmail.com"),
+    createData("Tom Hanks", "Actor", "	tomhanks@gmail.com"),
     createData(
       "David Robinson",
       "Pro Basketball Player",
-      "davidrobinson@gmail.com",
-      "982-244-8484"
+      "davidrobinson@gmail.com"
     ),
     createData(
       "Russel Westbrook",
       "Pro Basketball Player",
-      "russ@gmail.com",
-      "965-224-8484"
+      "russ@gmail.com"
     ),
-    createData("Liam Neeson", "Actor", "	lisamneeson@aol.com", "644-888-9292"),
-    createData("Dawud Zakir", "Doctor", "drdawud@gmail.com", "763-454-9898"),
+    createData("Liam Neeson", "Actor", "	lisamneeson@aol.com"),
+    createData("Dawud Zakir", "Doctor", "drdawud@gmail.com"),
   ];
   return (
     <form className="search--form" onSubmit={searchEmployee}>
@@ -71,8 +67,8 @@ function SearchEmployee({
                 color: "white",
                 position: "absolute",
                 zIndex: 1,
-                width: isSmallScreen ? "35%" : "80%",
-                marginLeft: "2px"
+                width: isSmallScreen ? "35%" : "75%",
+                marginLeft: "2px",
               }}
               variant="plain"
               color="neutral"
@@ -109,13 +105,12 @@ function SearchEmployee({
                     >
                       Title
                     </th>
-                    <th style={{ width: "22%" }}>Email Address</th>
                     <th
                       style={
-                        isSmallScreen ? { width: "13%" } : { width: "10%" }
+                        isSmallScreen ? { width: "15%" } : { width: "16%" }
                       }
                     >
-                      Phone Number
+                      Email Address
                     </th>
                   </tr>
                 </thead>
@@ -125,7 +120,6 @@ function SearchEmployee({
                       <td>{row.fullName}</td>
                       <td>{row.jobTitle}</td>
                       <td>{row.emailAddress}</td>
-                      <td>{row.phoneNumber}</td>
                     </tr>
                   ))}
                 </tbody>

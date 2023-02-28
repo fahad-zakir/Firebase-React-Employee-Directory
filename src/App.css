@@ -30,7 +30,7 @@ html, body, #background {
      font-weight: 900;
 }
  @media only screen and (max-width : 1050px) {
-td:not(:last-child) {
+td {
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
