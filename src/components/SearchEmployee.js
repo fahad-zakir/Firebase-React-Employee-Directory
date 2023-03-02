@@ -16,6 +16,7 @@ function SearchEmployee({
   function createData(fullName, jobTitle, emailAddress) {
     return { fullName, jobTitle, emailAddress };
   }
+  //sample employees to use in directory 
   const rows = [
     createData(
       "Fahad Zakir",
