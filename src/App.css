@@ -37,7 +37,11 @@ td {
 }
  .nav--icon {
      height: 32px;
-     margin-right: 7px;
+     width: 50px;
+     margin-left: 38px;
+}
+.logo-row {
+     max-width: 200px;
 }
  .employeeForm {
      margin-top: 4%;
@@ -47,6 +51,14 @@ td {
      border-radius: 4px;
      margin-top: 16%;
      text-align: center;
+}
+@media only screen and (max-width : 670px) {
+     .admin-label {
+     font-size: 11px;
+     }
+     .admin-input {
+      width: 80%;
+     }
 }
  @media only screen and (max-width : 500px) {
         .search--button {
@@ -71,6 +83,12 @@ td {
     }
      .nav--icon {
      height: 18px;
+     }
+     .admin-label {
+       font-size: 10px;
+     }
+     .admin-input {
+      width: 70%;
      }
      html, body, #background {
      min-height: 90vh;
@@ -317,9 +335,44 @@ button.alert-msg-success:hover {
      border-radius: 10px;
   }
 .employees-list-hover{
+     margin-top: 150px;
      background-color: white;
      border-radius: 6px;
      padding: 5px;
      max-width: 300px;
      font-size: .9em !important;
 }
+.admin-btn {
+    background-color: #cc3700;
+    color: rgb(61, 58, 58);
+    font-weight: 600;
+    border: none;
+    padding: 3px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 40px;
+    cursor: pointer;
+  }
+.admin-label {
+   font-size: 12px;
+   margin-top: 0px !important;
+   margin-bottom: 0px !important;
+   color: #ff4500;
+   font-weight: 600;
+}
+.admin-input {
+background-color: #cc3700;
+    font-size: 11x;
+    font-weight: 600;
+    height: 20px;
+    border-radius: 6px;
+    margin-bottom: 1px;
+}
+
+
+
