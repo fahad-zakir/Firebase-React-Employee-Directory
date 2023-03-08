@@ -42,6 +42,7 @@ td {
 }
 .logo-row {
      max-width: 200px;
+     justify-content: flex-end !important;
 }
  .employeeForm {
      margin-top: 4%;
@@ -347,7 +348,6 @@ button.alert-msg-success:hover {
     color: rgb(61, 58, 58);
     font-weight: 600;
     border: none;
-    padding: 3px 6px;
     font-size: 12px;
     font-weight: bold;
     text-align: center;
@@ -355,7 +355,7 @@ button.alert-msg-success:hover {
     margin-top: 5px;
     cursor: pointer;
     border-radius: 4px;
-    margin-left: 40px;
+    margin-left: 66px;
     cursor: pointer;
   }
 .admin-label {
@@ -367,12 +367,9 @@ button.alert-msg-success:hover {
 }
 .admin-input {
 background-color: #cc3700;
-    font-size: 11x;
+    font-size: 10x;
     font-weight: 600;
     height: 20px;
     border-radius: 6px;
     margin-bottom: 1px;
 }
-
-
-

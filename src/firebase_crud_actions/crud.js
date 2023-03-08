@@ -8,7 +8,6 @@ import {
     updateDoc,
     deleteDoc,
     doc,
-    recentDoc
 } from "firebase/firestore";
 
 const employeeDatabaseRef = collection(db, "employees");
