@@ -43,9 +43,15 @@ function SearchEmployee({
                 width: isSmallScreen ? "35%" : "70%",
                 marginLeft: "2px",
               }}
+              className="custom-sheet"
               variant="plain"
               color="neutral"
               sx={{
+                "--TableCell-height": "40px",
+                // the number is the amount of the header rows.
+                "--TableHeader-height": "calc(1 * var(--TableCell-height))",
+                height: 220,
+                overflow: "auto",
                 pt: 1,
                 borderRadius: "sm",
                 transition: "0.3s",
