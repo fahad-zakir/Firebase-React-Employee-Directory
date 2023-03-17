@@ -10,43 +10,16 @@ function SearchEmployee({
   searchEmployee,
   errorMsg,
   handleSearchInput,
+  employeeListDb
 }) {
   const isSmallScreen = useMediaQuery("(min-width:600px)");
   const [showSheet, setShowSheet] = useState(false);
-  function createData(fullName, jobTitle, emailAddress) {
-    return { fullName, jobTitle, emailAddress };
-  }
-  //sample employees to use in directory 
-  const rows = [
-    createData(
-      "Fahad Zakir",
-      "Programmer",
-      "fahadzakir11@gmail.com"
-    ),
-    createData("John Wick", "Actor", "johnfox@aol.com"),
-    createData(
-      "Ashley Thompson",
-      "Director",
-      "ashley25@gmail.com"
-    ),
-    createData("Mike Miller", "Doctor", "drmike@gmail.com"),
-    createData("Fred Taylor", "Athlete", "fred@gmail.com"),
-    createData("Tom Hanks", "Actor", "	tomhanks@gmail.com"),
-    createData(
-      "David Robinson",
-      "Pro Basketball Player",
-      "davidrobinson@gmail.com"
-    ),
-    createData(
-      "Russel Westbrook",
-      "Pro Basketball Player",
-      "russ@gmail.com"
-    ),
-    createData("Liam Neeson", "Actor", "	lisamneeson@aol.com"),
-    createData("Dawud Zakir", "Doctor", "drdawud@gmail.com"),
-  ];
   return (
-    <form className="search--form" onSubmit={searchEmployee}>
+    <form
+      className="search--form"
+      onSubmit={searchEmployee}
+      onMouseLeave={() => setShowSheet(false)}
+    >
       <div className="col-sm-12">
         <Typography
           mt={5}
@@ -57,7 +30,6 @@ function SearchEmployee({
           <p
             className="employees-list-hover"
             onMouseEnter={() => setShowSheet(true)}
-            onMouseLeave={() => setShowSheet(false)}
           >
             Hover here for employee list that you can use to search by either
             name, job title or email address.
@@ -116,11 +88,11 @@ function SearchEmployee({
                   </tr>
                 </thead>
                 <tbody>
-                  {rows.map((row) => (
-                    <tr key={row.fullName}>
-                      <td>{row.fullName}</td>
-                      <td>{row.jobTitle}</td>
-                      <td>{row.emailAddress}</td>
+                  {employeeListDb.map((employee, index) => (
+                    <tr key={index}>
+                      <td>{employee.fullName}</td>
+                      <td>{employee.jobTitle}</td>
+                      <td>{employee.emailAddress}</td>
                     </tr>
                   ))}
                 </tbody>

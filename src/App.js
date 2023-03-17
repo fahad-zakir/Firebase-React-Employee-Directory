@@ -216,6 +216,7 @@ function App() {
         {toggleComponent ? (
           <div className="col-sm-12">
             <SearchEmployee
+              employeeListDb={employeeListDb}
               handleButtonClick={handleButtonClick}
               searchEmployee={searchEmployee}
               errorMsg={errorMsg}
