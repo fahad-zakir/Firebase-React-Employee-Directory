@@ -334,8 +334,12 @@ button.alert-msg-success:hover {
      background-color: white;
      border-radius: 6px;
      padding: 5px;
-     max-width: 300px;
-     font-size: .9em !important;
+     margin-top: 50px;
+     margin-left: 100px;
+     max-width: 300px !important;
+     font-size: .77em !important;
+     font-weight: 500;
+     font-family: "Roboto","Helvetica","Arial",sans-serif;
 }
 .admin-btn {
     background-color: #cc3700;

@@ -27,6 +27,7 @@ function App() {
   //get all employees from firestore db
   useEffect(() => {
     getEmployees();
+    console.log('working')
   }, []);
   const getEmployees = async () => {
     const data = await EmployeeDataService.getAllEmployees();

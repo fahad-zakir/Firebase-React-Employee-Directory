@@ -32,7 +32,7 @@ function EmployeeList({
           transition: "0.3s",
           background: (theme) => `linear-gradient(45deg, #ecf1f0, #cccccc)`,
           "& tr:last-child": {
-            "& td:first-child": {
+            "& td:first-of-type": {
               borderBottomLeftRadius: "8px",
             },
             "& td:last-child": {
@@ -55,7 +55,8 @@ function EmployeeList({
                 Phone Number
               </th>
               <th
-                style={isSmallScreen ? { width: "8%" } : { width: "10%" }}></th>
+                style={isSmallScreen ? { width: "8%" } : { width: "10%" }}
+              ></th>
             </tr>
           </thead>
           <tbody>
@@ -68,7 +69,7 @@ function EmployeeList({
                   <td>{data.phoneNumber} </td>
                   <td className="td-custom">
                     <ModeEditOutlineTwoToneIcon
-                      fontSize={isSmallScreen ? "medium" : "small" }
+                      fontSize={isSmallScreen ? "medium" : "small"}
                       onClick={() => handleEdit(data.id)}
                       style={{ cursor: "pointer" }}
                     />

@@ -21,12 +21,6 @@ function SearchEmployee({
       onMouseLeave={() => setShowSheet(false)}
     >
       <div className="col-sm-12">
-        <Typography
-          mt={5}
-          ml={isSmallScreen ? 5 : 6}
-          className="custom-info"
-          variant="body2"
-        >
           <p
             className="employees-list-hover"
             onMouseEnter={() => setShowSheet(true)}
@@ -41,7 +35,7 @@ function SearchEmployee({
                 position: "absolute",
                 zIndex: 1,
                 width: isSmallScreen ? "35%" : "70%",
-                marginLeft: "2px",
+                marginLeft: "6px",
               }}
               className="custom-sheet"
               variant="plain"
@@ -105,7 +99,6 @@ function SearchEmployee({
               </Table>
             </Sheet>
           )}
-        </Typography>
       </div>
       <div className="col-sm-12 d-flex justify-content-center">
         <input
