@@ -50,7 +50,7 @@ function SearchEmployee({
                 "--TableCell-height": "40px",
                 // the number is the amount of the header rows.
                 "--TableHeader-height": "calc(1 * var(--TableCell-height))",
-                height: 220,
+                height: 300,
                 overflow: "auto",
                 pt: 1,
                 borderRadius: "sm",
